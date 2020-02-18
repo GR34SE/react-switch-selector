@@ -1,0 +1,27 @@
+{
+  "name": "react-switch-selector",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/GR34SE/react-switch-selector.git",
+  "author": "Adrian Celczyński",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "rm -rf ./dist && tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
+}
