@@ -17,32 +17,38 @@ type PropsTypes = {
 
 const SwitchSelector = (props: PropsTypes) => {
     const {onChange = () => null, options = [], initialSelectedIndex = 0, wrapperStyles, optionStyles, selectedOptionStyles} = props;
-    const [selected, setSelected] = React.useState(options.length && (options[initialSelectedIndex] || options[0]));
+    const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
 
     React.useEffect(() => {
-        if(selected) onChange(selected.value);
-    }, [selected]);
+        onChange(options[selectedIndex].value);
+    }, [selectedIndex]);
 
     const renderOptions = () => {
         return options.map((option, idx) => {
-            const isSelected = (option === selected);
-            const overrideStyles = {...optionStyles, ...(isSelected ? selectedOptionStyles : {})};
 
             return (
                 <OptionItem
-                    selected={isSelected}
-                    onClick={() => setSelected(option)}
-                    overrideStyles={overrideStyles}
                     key={idx}
+                    selected={selectedIndex === idx}
+                    onClick={() => setSelectedIndex(idx)}
+                    overrideStyles={optionStyles}
+                    optionsAmount={options.length}
                 >
-                    <span>{option.label}</span>
+                    <span>
+                        {option.label}
+                    </span>
                 </OptionItem>
             );
         });
     };
 
     return (
-        <SwitchSelectorWrapper overrideStyles={wrapperStyles}>
+        <SwitchSelectorWrapper
+            selectedOptionStyles={selectedOptionStyles}
+            selectedIndex={selectedIndex}
+            optionsAmount={options.length}
+            overrideStyles={wrapperStyles}
+        >
             {renderOptions()}
         </SwitchSelectorWrapper>
     );
