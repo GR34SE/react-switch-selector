@@ -15,6 +15,8 @@ type PropsTypes = {
     selectedOptionStyles?: any;
 }
 
+const classNamesPrefix = "react-switch-selector";
+
 const SwitchSelector = (props: PropsTypes) => {
     const {onChange = () => null, options = [], initialSelectedIndex = 0, wrapperStyles, optionStyles, selectedOptionStyles} = props;
     const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
@@ -34,8 +36,9 @@ const SwitchSelector = (props: PropsTypes) => {
                     onClick={() => handleOnClick(idx)}
                     overrideStyles={optionStyles}
                     optionsAmount={options.length}
+                    className={`${classNamesPrefix}-option`}
                 >
-                    <span>
+                    <span className={`${classNamesPrefix}-option-label`}>
                         {option.label}
                     </span>
                 </OptionItem>
@@ -49,6 +52,7 @@ const SwitchSelector = (props: PropsTypes) => {
             selectedIndex={selectedIndex}
             optionsAmount={options.length}
             overrideStyles={wrapperStyles}
+            className={`${classNamesPrefix}-wrapper`}
         >
             {renderOptions()}
         </SwitchSelectorWrapper>
