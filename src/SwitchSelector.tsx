@@ -19,9 +19,10 @@ const SwitchSelector = (props: PropsTypes) => {
     const {onChange = () => null, options = [], initialSelectedIndex = 0, wrapperStyles, optionStyles, selectedOptionStyles} = props;
     const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
 
-    React.useEffect(() => {
+    const handleOnClick = (idx) => {
+        setSelectedIndex(idx);
         onChange(options[selectedIndex].value);
-    }, [selectedIndex]);
+    };
 
     const renderOptions = () => {
         return options.map((option, idx) => {
@@ -30,7 +31,7 @@ const SwitchSelector = (props: PropsTypes) => {
                 <OptionItem
                     key={idx}
                     selected={selectedIndex === idx}
-                    onClick={() => setSelectedIndex(idx)}
+                    onClick={() => handleOnClick(idx)}
                     overrideStyles={optionStyles}
                     optionsAmount={options.length}
                 >
