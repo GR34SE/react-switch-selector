@@ -3,59 +3,66 @@ import styled from "@emotion/styled";
 interface SwitchSelectorWrapperPropTypes {
     selectedIndex: number;
     optionsAmount: number;
-    selectedOptionStyles: any;
-    overrideStyles: any;
+    border: string | number;
+    backgroundColor?: string;
+    selectedBackgroundColor?: string;
+    wrapperBorderRadius: number;
+    optionBorderRadius: number;
 }
 
 export const SwitchSelectorWrapper = styled('div')<SwitchSelectorWrapperPropTypes>`
   display: flex;
-  border-radius: 20px;
-  border: 1px solid #eaeaea;
+  border-radius: ${props => props.wrapperBorderRadius}px;
+  border: ${props => props.border};
+  background: ${props => props.backgroundColor || "white"};
   width: 100%;
-  height: max-content;
+  height: 100%;
   position: relative;
-  
+
   ::before{
+    top: 50%;
     left: ${props => (props.selectedIndex / props.optionsAmount) * 100}%;
     content: '';
     position: absolute;
-    height: 36px;
+    height: 100%;
     width: ${props => (1 / props.optionsAmount) * 100}%;
-    border-radius: 18px;
-    margin: 2px;
-    background: limegreen;
-    color: white;
+    border-radius: ${props => props.optionBorderRadius}px;
+    border: 2px solid ${props => props.backgroundColor || "white"};
+    background: ${props => props.selectedBackgroundColor || "limegreen"};
     transition: left 0.1s linear;
+    transform: translateY(-50%);
     z-index: 1;
-    ${props => props.selectedOptionStyles};
   }
-  ${props => props.overrideStyles};
 `;
 
-type OptionItemPropTypes = {
+type OptionItemPropsTypes = {
     optionsAmount: number;
-    selected: boolean;
-    overrideStyles: any;
+    optionBorderRadius: number;
 }
 
-export const OptionItem = styled('div')<OptionItemPropTypes>`
+export const OptionItem = styled('div')<OptionItemPropsTypes>`
   display: flex;
-  font-size: 14px;
-  height: 36px;
-  width: ${props => (1 / props.optionsAmount) * 100}%;
-  border-radius: 18px;
-  padding: 8px 16px;
-  cursor: pointer;
-  margin: 2px;
   align-items: center;
-  
-  span {
-    text-align: center;
-    width: 100%;
-    color: ${props => props.selected ? "white" : "black"};
-    z-index: 2;
-    transition: color 0.1s linear;
-  }
-  
-  ${props => props.overrideStyles};
+  height: 100%;
+  width: ${props => (1 / props.optionsAmount) * 100}%;
+  border-radius: ${props => props.optionBorderRadius}px;
+  cursor: pointer;
+`;
+
+type OptionItemLabelPropsTypes = {
+    selected: boolean;
+    fontSize: number;
+    fontColor?: string;
+    selectedFontColor?: string;
+}
+
+export const OptionItemLabel = styled('span')<OptionItemLabelPropsTypes>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: ${props => props.fontSize}px;
+  width: 100%;
+  color: ${props => props.selected ? (props.selectedFontColor || "white") : (props.fontColor || "black")};
+  z-index: 2;
+  transition: color 0.1s linear;
 `;

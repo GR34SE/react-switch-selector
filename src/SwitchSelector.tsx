@@ -1,5 +1,5 @@
 import * as React from "react";
-import {SwitchSelectorWrapper, OptionItem} from "./SwitchSelector.styled";
+import {SwitchSelectorWrapper, OptionItem, OptionItemLabel} from "./SwitchSelector.styled";
 
 type Option = {
     label: string;
@@ -10,16 +10,34 @@ type PropsTypes = {
     onChange: Function;
     options: Array<Option>;
     initialSelectedIndex?: number;
-    wrapperStyles?: any;
-    optionStyles?: any;
-    selectedOptionStyles?: any;
+
+    //Styles
+    border?: string | number;
+    backgroundColor?: string;
+    selectedBackgroundColor?: string;
+    wrapperBorderRadius?: number;
+    optionBorderRadius?: number;
+    fontSize?: number;
+    fontColor?: string;
+    selectedFontColor?: string;
 }
 
 const classNamesPrefix = "react-switch-selector";
 
 const SwitchSelector = (props: PropsTypes) => {
-    const {onChange = () => null, options = [], initialSelectedIndex = 0, wrapperStyles, optionStyles, selectedOptionStyles} = props;
+    const {onChange = () => null, options = [], initialSelectedIndex = 0} = props;
     const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
+
+    const {
+        border = 0,
+        backgroundColor,
+        selectedBackgroundColor,
+        wrapperBorderRadius = 20,
+        optionBorderRadius = 18,
+        fontSize = 14,
+        fontColor,
+        selectedFontColor
+    } = props;
 
     const handleOnClick = (idx) => {
         setSelectedIndex(idx);
@@ -27,32 +45,41 @@ const SwitchSelector = (props: PropsTypes) => {
     };
 
     const renderOptions = () => {
-        return options.map((option, idx) => {
+        return options.map((option, idx) => (
+            <OptionItem
+                key={idx}
+                onClick={() => handleOnClick(idx)}
+                optionsAmount={options.length}
+                className={`${classNamesPrefix}-option`}
 
-            return (
-                <OptionItem
-                    key={idx}
+                optionBorderRadius={optionBorderRadius}
+            >
+                <OptionItemLabel
                     selected={selectedIndex === idx}
-                    onClick={() => handleOnClick(idx)}
-                    overrideStyles={optionStyles}
-                    optionsAmount={options.length}
-                    className={`${classNamesPrefix}-option`}
+                    className={`${classNamesPrefix}-option-label`}
+
+                    fontSize={fontSize}
+                    fontColor={fontColor}
+                    selectedFontColor={selectedFontColor}
                 >
-                    <span className={`${classNamesPrefix}-option-label`}>
-                        {option.label}
-                    </span>
-                </OptionItem>
-            );
-        });
+                    {option.label}
+                </OptionItemLabel>
+            </OptionItem>
+        ));
     };
 
+    if (!options.length) return null;
     return (
         <SwitchSelectorWrapper
-            selectedOptionStyles={selectedOptionStyles}
             selectedIndex={selectedIndex}
             optionsAmount={options.length}
-            overrideStyles={wrapperStyles}
             className={`${classNamesPrefix}-wrapper`}
+
+            border={border}
+            backgroundColor={backgroundColor}
+            selectedBackgroundColor={selectedBackgroundColor}
+            wrapperBorderRadius={wrapperBorderRadius}
+            optionBorderRadius={optionBorderRadius}
         >
             {renderOptions()}
         </SwitchSelectorWrapper>
