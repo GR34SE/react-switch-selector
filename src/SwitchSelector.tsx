@@ -10,6 +10,7 @@ type PropsTypes = {
     onChange: Function;
     options: Array<Option>;
     initialSelectedIndex?: number;
+    inputName?: string;
 
     //Styles
     border?: string | number;
@@ -25,7 +26,7 @@ type PropsTypes = {
 const classNamesPrefix = "react-switch-selector";
 
 const SwitchSelector = (props: PropsTypes) => {
-    const {onChange = () => null, options = [], initialSelectedIndex = 0} = props;
+    const {onChange = () => null, options = [], initialSelectedIndex = 0, inputName = "reactSwitchSelector"} = props;
     const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
 
     const {
@@ -39,7 +40,7 @@ const SwitchSelector = (props: PropsTypes) => {
         selectedFontColor
     } = props;
 
-    const handleOnClick = (idx) => {
+    const handleOnClick = (idx: number) => {
         setSelectedIndex(idx);
         onChange(options[selectedIndex].value);
     };
@@ -81,6 +82,7 @@ const SwitchSelector = (props: PropsTypes) => {
             wrapperBorderRadius={wrapperBorderRadius}
             optionBorderRadius={optionBorderRadius}
         >
+            <input value={options[selectedIndex].value} name={inputName} type="hidden"/>
             {renderOptions()}
         </SwitchSelectorWrapper>
     );
