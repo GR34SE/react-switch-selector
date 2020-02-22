@@ -1,14 +1,17 @@
 import * as React from "react";
 import {SwitchSelectorWrapper, OptionItem, OptionItemLabel} from "./SwitchSelector.styled";
 
-type Option = {
+type OptionType = {
     label: string;
     value: any;
+    selectedBackgroundColor?: string;
+    fontColor?: string;
+    selectedFontColor?: string;
 }
 
 type PropsTypes = {
     onChange: Function;
-    options: Array<Option>;
+    options: Array<OptionType>;
     initialSelectedIndex?: number;
     inputName?: string;
 
@@ -31,13 +34,13 @@ const SwitchSelector = (props: PropsTypes) => {
 
     const {
         border = 0,
-        backgroundColor,
-        selectedBackgroundColor,
+        backgroundColor = "#ecf0f1",
+        selectedBackgroundColor = "#2ecc71",
         wrapperBorderRadius = 20,
         optionBorderRadius = 18,
         fontSize = 14,
-        fontColor,
-        selectedFontColor
+        fontColor = "#000",
+        selectedFontColor = "#fff"
     } = props;
 
     const handleOnClick = (idx: number) => {
@@ -60,8 +63,8 @@ const SwitchSelector = (props: PropsTypes) => {
                     className={`${classNamesPrefix}-option-label`}
 
                     fontSize={fontSize}
-                    fontColor={fontColor}
-                    selectedFontColor={selectedFontColor}
+                    fontColor={option.fontColor || fontColor}
+                    selectedFontColor={option.selectedFontColor || selectedFontColor}
                 >
                     {option.label}
                 </OptionItemLabel>
@@ -78,7 +81,7 @@ const SwitchSelector = (props: PropsTypes) => {
 
             border={border}
             backgroundColor={backgroundColor}
-            selectedBackgroundColor={selectedBackgroundColor}
+            selectedBackgroundColor={options[selectedIndex].selectedBackgroundColor || selectedBackgroundColor}
             wrapperBorderRadius={wrapperBorderRadius}
             optionBorderRadius={optionBorderRadius}
         >
