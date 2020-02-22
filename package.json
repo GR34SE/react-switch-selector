@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "repository": "https://github.com/GR34SE/react-switch-selector.git",
-  "author": "Adrian Celczyński",
+  "author": "Adrian Celczyński <adriancelczynski@icloud.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -23,5 +23,13 @@
   "peerDependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
-  }
+  },
+  "keywords": [
+    "react",
+    "switch",
+    "toggle",
+    "select",
+    "selector",
+    "input"
+  ]
 }
