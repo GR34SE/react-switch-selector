@@ -85,7 +85,7 @@ const SwitchSelector = (props: PropsTypes) => {
             wrapperBorderRadius={wrapperBorderRadius}
             optionBorderRadius={optionBorderRadius}
         >
-            <input value={options[selectedIndex].value} name={inputName} type="hidden"/>
+            <input value={options[selectedIndex].value || ""} name={inputName} type="hidden"/>
             {renderOptions()}
         </SwitchSelectorWrapper>
     );
