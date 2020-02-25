@@ -45,7 +45,7 @@ const SwitchSelector = (props: PropsTypes) => {
 
     const handleOnClick = (idx: number) => {
         setSelectedIndex(idx);
-        onChange(options[selectedIndex].value);
+        onChange(options[idx].value);
     };
 
     const renderOptions = () => {

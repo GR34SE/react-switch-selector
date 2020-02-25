@@ -1,4 +1,4 @@
-# [react-switch-selector](https://github.com/GR34SE/react-switch-selector) &middot; [![downloads](https://img.shields.io/npm/dm/react-switch-selector)](https://www.npmjs.com/package/react-switch-selector) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/GR34SE/react-switch-selector/pulls)
+# [react-switch-selector](https://github.com/GR34SE/react-switch-selector) &middot; [![downloads](https://img.shields.io/npm/dm/react-switch-selector)](https://www.npmjs.com/package/react-switch-selector) [![version](https://img.shields.io/github/package-json/v/GR34SE/react-switch-selector)](https://github.com/GR34SE/react-switch-selector) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/GR34SE/react-switch-selector/pulls)
 
 ### Examples
 ###### Default
@@ -65,8 +65,8 @@ import SwitchSelector from "react-switch-selector";
 
 | Prop  name                 | Type                    | Default             | Required  | Note                                                                             |
 | -------------------------  | ----------------------- | ------------------- | --------- | -------------------------------------------------------------------------------- |
-| options                    | Array<OptionType>       | []                  | true      | Options array to render. Each item has a label value and optional styling props  |
-| onChange                   | Function                | noop                | true      | onChange callback that returns selected Option's value                           |
+| options                    | Array of OptionType     | []                  | true      | Options array to render. Each item has a label value and optional styling props  |
+| onChange                   | Function                | () => null          | true      | onChange callback that returns selected Option's value                           |
 | initialSelectedIndex       | number                  | 0                   | false     | Initially selected index of options array                                        |
 | inputName                  | string                  | reactSwitchSelector | false     | Name of input (type hidden) that holds currently chosen value                    |
 | border                     | string/number           | 0                   | false     | Border of wrapping div                                                           |
@@ -79,6 +79,7 @@ import SwitchSelector from "react-switch-selector";
 | selectedFontColor          | string                  | #fff                | false     | Font color of selected Option's label                                            |
 
 #### OptionType
+
 | Property  name             | Type                    | Default             | Required  | Note                                                                             |
 | -------------------------  | ----------------------- | ------------------- | --------- | -------------------------------------------------------------------------------- |
 | label                      | string                  | undefined           | true      | Option's text label                                                              |
@@ -87,7 +88,8 @@ import SwitchSelector from "react-switch-selector";
 | fontColor                  | string                  | undefined           | false     | Font color of this Option's label                                                |
 | selectedFontColor          | string                  | undefined           | false     | Font color of this selected Option's label                                       |
 
-Overriding styles by pure css classes is available with react-switch-selector prefix:
+###### Overriding styles by pure css classes is available with react-switch-selector prefix:
+
 - react-switch-selector-wrapper - wrapping div
 - react-switch-selector-option - each option
 - react-switch-selector-option-label - each option item's label

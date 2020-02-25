@@ -1,7 +1,7 @@
 {
   "name": "react-switch-selector",
   "description": "Switch selector/toggle component for React",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "repository": "https://github.com/GR34SE/react-switch-selector.git",
   "author": "Adrian Celczyński <adriancelczynski@icloud.com>",
