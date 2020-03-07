@@ -77,6 +77,7 @@ import SwitchSelector from "react-switch-selector";
 | fontSize                   | number                  | 14                  | false     | Font size of Option's label                                                      |
 | fontColor                  | string                  | #000                | false     | Font color of Option's label                                                     |
 | selectedFontColor          | string                  | #fff                | false     | Font color of selected Option's label                                            |
+| selectionIndicatorMargin   | number                  | 2                   | false     | Inner margin of selection indicator                                              |
 
 #### OptionType
 

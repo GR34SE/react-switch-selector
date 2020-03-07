@@ -1,13 +1,27 @@
 import styled from "@emotion/styled";
 
-interface SwitchSelectorWrapperPropTypes {
-    selectedIndex: number;
-    optionsAmount: number;
+export type StylingPropsTypes = {
     border: string | number;
     backgroundColor: string;
     selectedBackgroundColor: string;
     wrapperBorderRadius: number;
     optionBorderRadius: number;
+    fontSize: number;
+    fontColor: string;
+    selectedFontColor: string;
+    selectionIndicatorMargin: number;
+}
+
+interface SwitchSelectorWrapperPropTypes extends Pick<StylingPropsTypes,
+    'border' |
+    'backgroundColor' |
+    'selectedBackgroundColor' |
+    'wrapperBorderRadius' |
+    'optionBorderRadius' |
+    'selectionIndicatorMargin'
+    > {
+    selectedIndex: number;
+    optionsAmount: number;
 }
 
 export const SwitchSelectorWrapper = styled('div')<SwitchSelectorWrapperPropTypes>`
@@ -24,10 +38,10 @@ export const SwitchSelectorWrapper = styled('div')<SwitchSelectorWrapperPropType
     left: ${props => (props.selectedIndex / props.optionsAmount) * 100}%;
     content: '';
     position: absolute;
-    height: 100%;
-    width: ${props => (1 / props.optionsAmount) * 100}%;
+    height: calc(100% - ${props => 2 * props.selectionIndicatorMargin}px);
+    width: calc(${props => (1 / props.optionsAmount) * 100}% - ${props => 2 * props.selectionIndicatorMargin}px);
     border-radius: ${props => props.optionBorderRadius}px;
-    border: 2px solid ${props => props.backgroundColor};
+    border: ${props => props.selectionIndicatorMargin}px solid ${props => props.backgroundColor};
     background: ${props => props.selectedBackgroundColor};
     transition: left 0.1s linear, background 0.1s linear;
     transform: translateY(-50%);
@@ -35,9 +49,8 @@ export const SwitchSelectorWrapper = styled('div')<SwitchSelectorWrapperPropType
   }
 `;
 
-type OptionItemPropsTypes = {
+interface OptionItemPropsTypes extends Pick<StylingPropsTypes, 'optionBorderRadius'>{
     optionsAmount: number;
-    optionBorderRadius: number;
 }
 
 export const OptionItem = styled('div')<OptionItemPropsTypes>`
@@ -49,11 +62,8 @@ export const OptionItem = styled('div')<OptionItemPropsTypes>`
   cursor: pointer;
 `;
 
-type OptionItemLabelPropsTypes = {
+interface OptionItemLabelPropsTypes extends Pick<StylingPropsTypes, 'fontSize' | 'fontColor' | 'selectedFontColor'>{
     selected: boolean;
-    fontSize: number;
-    fontColor: string;
-    selectedFontColor: string;
 }
 
 export const OptionItemLabel = styled('span')<OptionItemLabelPropsTypes>`
