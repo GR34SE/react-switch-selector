@@ -14,13 +14,12 @@ interface PropsTypes extends Partial<StylingPropsTypes> {
     onChange: Function;
     options: Array<OptionType>;
     initialSelectedIndex?: number;
-    inputName?: string;
 }
 
 const classNamesPrefix = "react-switch-selector";
 
 const SwitchSelector = (props: PropsTypes) => {
-    const {onChange = () => null, options = [], initialSelectedIndex = 0, inputName = "reactSwitchSelector"} = props;
+    const {onChange = (v) => (console.log(v)), options = [], initialSelectedIndex = 0} = props;
     const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
 
     const {
@@ -80,7 +79,6 @@ const SwitchSelector = (props: PropsTypes) => {
             optionBorderRadius={optionBorderRadius}
             selectionIndicatorMargin={selectionIndicatorMargin}
         >
-            <input value={options[selectedIndex].value || ""} name={inputName} type="hidden"/>
             {renderOptions()}
         </SwitchSelectorWrapper>
     );

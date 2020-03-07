@@ -1,4 +1,4 @@
-# [react-switch-selector](https://github.com/GR34SE/react-switch-selector) &middot; [![downloads](https://img.shields.io/npm/dm/react-switch-selector)](https://www.npmjs.com/package/react-switch-selector) [![version](https://img.shields.io/github/package-json/v/GR34SE/react-switch-selector)](https://github.com/GR34SE/react-switch-selector) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/GR34SE/react-switch-selector/pulls)
+# [react-switch-selector](https://github.com/GR34SE/react-switch-selector) &middot; [![downloads](https://img.shields.io/npm/dm/react-switch-selector)](https://www.npmjs.com/package/react-switch-selector) [![version](https://img.shields.io/github/package-json/v/GR34SE/react-switch-selector)](https://github.com/GR34SE/react-switch-selector) [![HitCount](http://hits.dwyl.com/GR34SE/react-switch-selector.svg)](http://hits.dwyl.com/GR34SE/react-switch-selector) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/GR34SE/react-switch-selector/pulls)
 
 ### Examples
 ###### Default
@@ -51,33 +51,34 @@ import SwitchSelector from "react-switch-selector";
 
     const initialSelectedIndex = options.findIndex(({value}) => value === null);
 
-    <SwitchSelector
-        inputName="fooBar"
-        onChange={onChange}
-        options={options}
-        initialSelectedIndex={initialSelectedIndex}
-        backgroundColor={"#353b48"}
-        fontColor={"#f5f6fa"}
-    />
+    <div style={{width: 100, height: 40}}>
+        <SwitchSelector
+            onChange={onChange}
+            options={options}
+            initialSelectedIndex={initialSelectedIndex}
+            backgroundColor={"#353b48"}
+            fontColor={"#f5f6fa"}
+        />
+    </div>
 ```
 
 ### Props
 
-| Prop  name                 | Type                    | Default             | Required  | Note                                                                             |
-| -------------------------  | ----------------------- | ------------------- | --------- | -------------------------------------------------------------------------------- |
-| options                    | Array of OptionType     | []                  | true      | Options array to render. Each item has a label value and optional styling props  |
-| onChange                   | Function                | () => null          | true      | onChange callback that returns selected Option's value                           |
-| initialSelectedIndex       | number                  | 0                   | false     | Initially selected index of options array                                        |
-| inputName                  | string                  | reactSwitchSelector | false     | Name of input (type hidden) that holds currently chosen value                    |
-| border                     | string/number           | 0                   | false     | Border of wrapping div                                                           |
-| backgroundColor            | string                  | #ecf0f1             | false     | Background color of wrapping div                                                 |
-| selectedBackgroundColor    | string                  | #2ecc71             | false     | Background of selected Option                                                    |
-| wrapperBorderRadius        | number                  | 20                  | false     | Border radius of wrapping div                                                    |
-| optionBorderRadius         | number                  | 18                  | false     | Border radius of Option component                                                |
-| fontSize                   | number                  | 14                  | false     | Font size of Option's label                                                      |
-| fontColor                  | string                  | #000                | false     | Font color of Option's label                                                     |
-| selectedFontColor          | string                  | #fff                | false     | Font color of selected Option's label                                            |
-| selectionIndicatorMargin   | number                  | 2                   | false     | Inner margin of selection indicator                                              |
+| Prop  name                 | Type                    | Default                 | Required  | Note                                                                             |
+| -------------------------  | ----------------------- | ----------------------- | --------- | -------------------------------------------------------------------------------- |
+| options                    | Array of OptionType     | []                      | true      | Options array to render. Each item has a label value and optional styling props  |
+| onChange                   | Function                | (v) => (console.log(v)) | true      | onChange callback that returns selected Option's value                           |
+| initialSelectedIndex       | number                  | 0                       | false     | Initially selected index of options array                                        |
+| inputName                  | string                  | reactSwitchSelector     | false     | Name of input (type hidden) that holds currently chosen value                    |
+| border                     | string/number           | 0                       | false     | Border of wrapping div                                                           |
+| backgroundColor            | string                  | #ecf0f1                 | false     | Background color of wrapping div                                                 |
+| selectedBackgroundColor    | string                  | #2ecc71                 | false     | Background of selected Option                                                    |
+| wrapperBorderRadius        | number                  | 20                      | false     | Border radius of wrapping div                                                    |
+| optionBorderRadius         | number                  | 18                      | false     | Border radius of Option component                                                |
+| fontSize                   | number                  | 14                      | false     | Font size of Option's label                                                      |
+| fontColor                  | string                  | #000                    | false     | Font color of Option's label                                                     |
+| selectedFontColor          | string                  | #fff                    | false     | Font color of selected Option's label                                            |
+| selectionIndicatorMargin   | number                  | 2                       | false     | Inner margin of selection indicator                                              |
 
 #### OptionType
 
@@ -91,6 +92,6 @@ import SwitchSelector from "react-switch-selector";
 
 ###### Overriding styles by pure css classes is available with react-switch-selector prefix:
 
-- react-switch-selector-wrapper - wrapping div
+- react-switch-selector-wrapper - component root div
 - react-switch-selector-option - each option
 - react-switch-selector-option-label - each option item's label
