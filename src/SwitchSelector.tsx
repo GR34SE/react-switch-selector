@@ -19,7 +19,7 @@ interface PropsTypes extends Partial<StylingPropsTypes> {
 const classNamesPrefix = "react-switch-selector";
 
 const SwitchSelector = (props: PropsTypes) => {
-    const {onChange = (v) => (console.log(v)), options = [], initialSelectedIndex = 0} = props;
+    const {onChange = (v: any) => (console.log(v)), options = [], initialSelectedIndex = 0} = props;
     const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
 
     const {
@@ -42,27 +42,37 @@ const SwitchSelector = (props: PropsTypes) => {
     };
 
     const renderOptions = () => {
-        return options.map((option, idx) => (
-            <OptionItem
-                key={idx}
-                onClick={() => handleOnClick(idx)}
-                optionsAmount={options.length}
-                className={`${classNamesPrefix}-option`}
+        return options.map((option, idx) => {
+            const _optionId = `rss-option-${idx}`;
 
-                optionBorderRadius={optionBorderRadius}
-            >
-                <OptionItemLabel
-                    selected={selectedIndex === idx}
-                    className={`${classNamesPrefix}-option-label`}
+            return (
+                <OptionItem
+                    key={idx}
+                    optionsAmount={options.length}
+                    className={`${classNamesPrefix}-option`}
 
-                    fontSize={fontSize}
-                    fontColor={option.fontColor || fontColor}
-                    selectedFontColor={option.selectedFontColor || selectedFontColor}
+                    optionBorderRadius={optionBorderRadius}
                 >
-                    {option.label}
-                </OptionItemLabel>
-            </OptionItem>
-        ));
+                    <input
+                        type="radio"
+                        id={_optionId}
+                        onChange={() => handleOnClick(idx)}
+                        checked={selectedIndex === idx}
+                    />
+                    <OptionItemLabel
+                        htmlFor={_optionId}
+                        selected={selectedIndex === idx}
+                        className={`${classNamesPrefix}-option-label`}
+
+                        fontSize={fontSize}
+                        fontColor={option.fontColor || fontColor}
+                        selectedFontColor={option.selectedFontColor || selectedFontColor}
+                    >
+                        {option.label}
+                    </OptionItemLabel>
+                </OptionItem>
+            )
+        });
     };
 
     if (!options.length) return null;

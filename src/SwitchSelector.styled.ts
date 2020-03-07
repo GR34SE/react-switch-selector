@@ -59,20 +59,30 @@ export const OptionItem = styled('div')<OptionItemPropsTypes>`
   height: 100%;
   width: ${props => (1 / props.optionsAmount) * 100}%;
   border-radius: ${props => props.optionBorderRadius}px;
-  cursor: pointer;
+  
+  input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    pointer-events: none;
+  }
 `;
 
 interface OptionItemLabelPropsTypes extends Pick<StylingPropsTypes, 'fontSize' | 'fontColor' | 'selectedFontColor'>{
     selected: boolean;
 }
 
-export const OptionItemLabel = styled('span')<OptionItemLabelPropsTypes>`
+export const OptionItemLabel = styled('label')<OptionItemLabelPropsTypes>`
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: ${props => props.fontSize}px;
   width: 100%;
+  height: 100%;
   color: ${props => props.selected ? props.selectedFontColor : props.fontColor};
   z-index: 2;
   transition: color 0.1s linear;
+  cursor: pointer;
 `;
