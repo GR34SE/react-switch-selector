@@ -1,5 +1,5 @@
 import * as React from "react";
-import {SwitchSelectorWrapper, OptionItem, OptionItemLabel} from "./SwitchSelector.styled";
+import {SwitchSelectorWrapper, OptionItem, OptionItemLabel, OptionInput} from "./SwitchSelector.styled";
 import {StylingPropsTypes} from "./SwitchSelector.styled";
 
 type OptionType = {
@@ -19,7 +19,7 @@ interface PropsTypes extends Partial<StylingPropsTypes> {
 const classNamesPrefix = "react-switch-selector";
 
 const SwitchSelector = (props: PropsTypes) => {
-    const {onChange = (v: any) => (console.log(v)), options = [], initialSelectedIndex = 0} = props;
+    const {onChange = (value: any) => (console.log(value)), options = [], initialSelectedIndex = 0} = props;
     const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
 
     const {
@@ -47,27 +47,26 @@ const SwitchSelector = (props: PropsTypes) => {
 
             return (
                 <OptionItem
-                    key={idx}
+                    key={_optionId}
                     optionsAmount={options.length}
                     className={`${classNamesPrefix}-option`}
 
                     optionBorderRadius={optionBorderRadius}
                 >
-                    <input
-                        type="radio"
-                        id={_optionId}
-                        onChange={() => handleOnClick(idx)}
-                        checked={selectedIndex === idx}
-                    />
                     <OptionItemLabel
-                        htmlFor={_optionId}
-                        selected={selectedIndex === idx}
                         className={`${classNamesPrefix}-option-label`}
+                        selected={selectedIndex === idx}
 
                         fontSize={fontSize}
                         fontColor={option.fontColor || fontColor}
                         selectedFontColor={option.selectedFontColor || selectedFontColor}
                     >
+                        <OptionInput
+                            type="radio"
+                            id={_optionId}
+                            onChange={() => handleOnClick(idx)}
+                            checked={selectedIndex === idx}
+                        />
                         {option.label}
                     </OptionItemLabel>
                 </OptionItem>

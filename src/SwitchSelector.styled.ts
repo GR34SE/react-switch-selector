@@ -60,14 +60,7 @@ export const OptionItem = styled('div')<OptionItemPropsTypes>`
   width: ${props => (1 / props.optionsAmount) * 100}%;
   border-radius: ${props => props.optionBorderRadius}px;
   
-  input {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    z-index: -1;
-    position: absolute;
-    pointer-events: none;
-  }
+
 `;
 
 interface OptionItemLabelPropsTypes extends Pick<StylingPropsTypes, 'fontSize' | 'fontColor' | 'selectedFontColor'>{
@@ -85,4 +78,13 @@ export const OptionItemLabel = styled('label')<OptionItemLabelPropsTypes>`
   z-index: 2;
   transition: color 0.1s linear;
   cursor: pointer;
+`;
+
+export const OptionInput = styled.input`
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  pointer-events: none;
 `;
