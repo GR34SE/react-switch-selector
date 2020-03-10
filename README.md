@@ -34,13 +34,13 @@ import SwitchSelector from "react-switch-selector";
         {
             label: "Foo",
             value: {
-                foo: "bar"
+                foo: true
             },
             selectedBackgroundColor: "#0097e6",
         },
         {
             label: "Bar",
-            value: null,
+            value: "bar",
             selectedBackgroundColor: "#fbc531"
         }
     ];
@@ -49,7 +49,7 @@ import SwitchSelector from "react-switch-selector";
         console.log(newValue);
     };
 
-    const initialSelectedIndex = options.findIndex(({value}) => value === null);
+    const initialSelectedIndex = options.findIndex(({value}) => value === "bar");
 
     return (
         <div className="your-required-wrapper" style={{width: 100, height: 30}}>
