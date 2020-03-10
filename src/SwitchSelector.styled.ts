@@ -46,6 +46,7 @@ export const SwitchSelectorWrapper = styled('div')<SwitchSelectorWrapperPropType
     transition: left 0.1s linear, background 0.1s linear;
     transform: translateY(-50%);
     z-index: 1;
+    box-sizing: content-box;
   }
 `;
 
@@ -59,8 +60,6 @@ export const OptionItem = styled('div')<OptionItemPropsTypes>`
   height: 100%;
   width: ${props => (1 / props.optionsAmount) * 100}%;
   border-radius: ${props => props.optionBorderRadius}px;
-  
-
 `;
 
 interface OptionItemLabelPropsTypes extends Pick<StylingPropsTypes, 'fontSize' | 'fontColor' | 'selectedFontColor'>{

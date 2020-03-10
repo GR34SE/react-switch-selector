@@ -1,4 +1,4 @@
-# [react-switch-selector](https://github.com/GR34SE/react-switch-selector) &middot; [![downloads](https://img.shields.io/npm/dm/react-switch-selector)](https://www.npmjs.com/package/react-switch-selector) [![version](https://img.shields.io/github/package-json/v/GR34SE/react-switch-selector)](https://github.com/GR34SE/react-switch-selector) [![HitCount](http://hits.dwyl.com/GR34SE/react-switch-selector.svg)](http://hits.dwyl.com/GR34SE/react-switch-selector)
+# [react-switch-selector](https://github.com/GR34SE/react-switch-selector) &middot; [![downloads](https://img.shields.io/npm/dm/react-switch-selector)](https://www.npmjs.com/package/react-switch-selector) [![version](https://img.shields.io/github/package-json/v/GR34SE/react-switch-selector)](https://github.com/GR34SE/react-switch-selector) [![HitCount](http://hits.dwyl.com/GR34SE/react-switch-selector.svg)](https://www.npmjs.com/package/react-switch-selector)
 
 ### Examples
 ###### Default
@@ -52,7 +52,7 @@ import SwitchSelector from "react-switch-selector";
     const initialSelectedIndex = options.findIndex(({value}) => value === null);
 
     return (
-        <div style={{width: 100, height: 30}}>
+        <div className="your-required-wrapper" style={{width: 100, height: 30}}>
             <SwitchSelector
                 onChange={onChange}
                 options={options}
@@ -79,7 +79,7 @@ import SwitchSelector from "react-switch-selector";
 | fontSize                   | number                  | 14                      | false     | Font size of Option's label                                                      |
 | fontColor                  | string                  | #000                    | false     | Font color of Option's label                                                     |
 | selectedFontColor          | string                  | #fff                    | false     | Font color of selected Option's label                                            |
-| selectionIndicatorMargin   | number                  | 2                       | false     | Inner margin of selection indicator                                              |
+| selectionIndicatorMargin   | number                  | 2                       | false     | Inner px margin of selected option indicator                                              |
 
 #### OptionType
 

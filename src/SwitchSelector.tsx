@@ -20,7 +20,12 @@ const classNamesPrefix = "react-switch-selector";
 
 const SwitchSelector = (props: PropsTypes) => {
     const {onChange = (value: any) => (console.log(value)), options = [], initialSelectedIndex = 0} = props;
-    const [selectedIndex, setSelectedIndex] = React.useState(initialSelectedIndex);
+    const canApplyInitialSelectedIndex = !!(options[initialSelectedIndex]);
+    const [selectedIndex, setSelectedIndex] = React.useState(canApplyInitialSelectedIndex ? initialSelectedIndex : 0);
+
+    if(!canApplyInitialSelectedIndex){
+        console.warn("[react-switch-selector]: Passed initialSelectedIndex prop doesn't match item from your options array");
+    }
 
     const {
         border = 0,
@@ -83,7 +88,7 @@ const SwitchSelector = (props: PropsTypes) => {
 
             border={border}
             backgroundColor={backgroundColor}
-            selectedBackgroundColor={options[selectedIndex].selectedBackgroundColor || selectedBackgroundColor}
+            selectedBackgroundColor={options[selectedIndex]?.selectedBackgroundColor || selectedBackgroundColor}
             wrapperBorderRadius={wrapperBorderRadius}
             optionBorderRadius={optionBorderRadius}
             selectionIndicatorMargin={selectionIndicatorMargin}
