@@ -14,6 +14,7 @@ interface PropsTypes extends Partial<StylingPropsTypes> {
     onChange: Function;
     options: Array<OptionType>;
     initialSelectedIndex?: number;
+    forcedSelectedIndex?:number;
 }
 
 const classNamesPrefix = "react-switch-selector";
@@ -45,6 +46,11 @@ const SwitchSelector = (props: PropsTypes) => {
             onChange(options[idx].value);
         }
     };
+
+    //Forcing selectedIndex from outside the component
+    if(!!(options[props.forcedSelectedIndex]) && props.forcedSelectedIndex !== selectedIndex) {
+        setSelectedIndex(props.forcedSelectedIndex);
+    }
 
     const renderOptions = () => {
         return options.map((option, idx) => {
