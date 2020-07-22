@@ -1,4 +1,5 @@
 import * as React from "react";
+import {useEffect} from "react";
 import {SwitchSelectorWrapper, OptionItem, OptionItemLabel, OptionInput} from "./SwitchSelector.styled";
 import {StylingPropsTypes} from "./SwitchSelector.styled";
 
@@ -14,7 +15,7 @@ interface PropsTypes extends Partial<StylingPropsTypes> {
     onChange: Function;
     options: Array<OptionType>;
     initialSelectedIndex?: number;
-    forcedSelectedIndex?:number;
+    forcedSelectedIndex?: number;
 }
 
 const classNamesPrefix = "react-switch-selector";
@@ -37,8 +38,15 @@ const SwitchSelector = (props: PropsTypes) => {
         fontSize = 14,
         fontColor = "#000",
         selectedFontColor = "#fff",
-        selectionIndicatorMargin = 2
+        selectionIndicatorMargin = 2,
+        forcedSelectedIndex
     } = props;
+
+    useEffect(() => {
+        if ((forcedSelectedIndex !== undefined) && !!(options[forcedSelectedIndex]) && (forcedSelectedIndex !== selectedIndex)) {
+            setSelectedIndex(forcedSelectedIndex);
+        }
+    }, [forcedSelectedIndex]);
 
     const handleOnClick = (idx: number) => {
         if(idx !== selectedIndex){
@@ -46,11 +54,6 @@ const SwitchSelector = (props: PropsTypes) => {
             onChange(options[idx].value);
         }
     };
-
-    //Forcing selectedIndex from outside the component
-    if(!!(options[props.forcedSelectedIndex]) && props.forcedSelectedIndex !== selectedIndex) {
-        setSelectedIndex(props.forcedSelectedIndex);
-    }
 
     const renderOptions = () => {
         return options.map((option, idx) => {
