@@ -1,18 +1,23 @@
 import * as React from "react";
 import {useEffect} from "react";
-import {SwitchSelectorWrapper, OptionItem, OptionItemLabel, OptionInput} from "./SwitchSelector.styled";
+import {
+    SwitchSelectorWrapper,
+    OptionItem,
+    OptionItemLabel,
+    OptionInput
+} from "./SwitchSelector.styled";
 import {StylingPropsTypes} from "./SwitchSelector.styled";
 
-type OptionType = {
+export type OptionType = {
     label: string;
-    value: any;
+    value: unknown;
     selectedBackgroundColor?: string;
     fontColor?: string;
     selectedFontColor?: string;
-}
+};
 
-interface PropsTypes extends Partial<StylingPropsTypes> {
-    onChange: Function;
+export interface Props extends Partial<StylingPropsTypes> {
+    onChange: (x?: unknown) => unknown | void;
     options: Array<OptionType>;
     initialSelectedIndex?: number;
     forcedSelectedIndex?: number;
@@ -20,13 +25,21 @@ interface PropsTypes extends Partial<StylingPropsTypes> {
 
 const classNamesPrefix = "react-switch-selector";
 
-const SwitchSelector = (props: PropsTypes) => {
-    const {onChange = (value: any) => (console.log(value)), options = [], initialSelectedIndex = 0} = props;
-    const canApplyInitialSelectedIndex = !!(options[initialSelectedIndex]);
-    const [selectedIndex, setSelectedIndex] = React.useState(canApplyInitialSelectedIndex ? initialSelectedIndex : 0);
+const SwitchSelector: React.FC<Props> = (props) => {
+    const {
+        onChange = (value): void => console.log(value),
+        options = [],
+        initialSelectedIndex = 0
+    } = props;
+    const canApplyInitialSelectedIndex = !!options[initialSelectedIndex];
+    const [selectedIndex, setSelectedIndex] = React.useState(
+        canApplyInitialSelectedIndex ? initialSelectedIndex : 0
+    );
 
-    if(!canApplyInitialSelectedIndex){
-        console.warn("[react-switch-selector]: Passed initialSelectedIndex prop doesn't match item from your options array");
+    if (!canApplyInitialSelectedIndex) {
+        console.warn(
+            "[react-switch-selector]: Passed initialSelectedIndex prop doesn't match item from your options array"
+        );
     }
 
     const {
@@ -43,19 +56,23 @@ const SwitchSelector = (props: PropsTypes) => {
     } = props;
 
     useEffect(() => {
-        if ((forcedSelectedIndex !== undefined) && !!(options[forcedSelectedIndex]) && (forcedSelectedIndex !== selectedIndex)) {
+        if (
+            forcedSelectedIndex !== undefined &&
+            !!options[forcedSelectedIndex] &&
+            forcedSelectedIndex !== selectedIndex
+        ) {
             setSelectedIndex(forcedSelectedIndex);
         }
-    }, [forcedSelectedIndex]);
+    }, [forcedSelectedIndex, options, selectedIndex]);
 
-    const handleOnClick = (idx: number) => {
-        if(idx !== selectedIndex){
+    const handleOnClick = (idx: number): void => {
+        if (idx !== selectedIndex) {
             setSelectedIndex(idx);
             onChange(options[idx].value);
         }
     };
 
-    const renderOptions = () => {
+    const renderOptions = (): React.ReactElement[] => {
         return options.map((option, idx) => {
             const _optionId = `rss-option-${idx}`;
 
@@ -64,13 +81,11 @@ const SwitchSelector = (props: PropsTypes) => {
                     key={_optionId}
                     optionsAmount={options.length}
                     className={`${classNamesPrefix}-option`}
-
                     optionBorderRadius={optionBorderRadius}
                 >
                     <OptionItemLabel
                         className={`${classNamesPrefix}-option-label`}
                         selected={selectedIndex === idx}
-
                         fontSize={fontSize}
                         fontColor={option.fontColor || fontColor}
                         selectedFontColor={option.selectedFontColor || selectedFontColor}
@@ -78,13 +93,13 @@ const SwitchSelector = (props: PropsTypes) => {
                         <OptionInput
                             type="radio"
                             id={_optionId}
-                            onChange={() => handleOnClick(idx)}
+                            onChange={(): void => handleOnClick(idx)}
                             checked={selectedIndex === idx}
                         />
                         {option.label}
                     </OptionItemLabel>
                 </OptionItem>
-            )
+            );
         });
     };
 
@@ -94,10 +109,11 @@ const SwitchSelector = (props: PropsTypes) => {
             selectedIndex={selectedIndex}
             optionsAmount={options.length}
             className={`${classNamesPrefix}-wrapper`}
-
             border={border}
             backgroundColor={backgroundColor}
-            selectedBackgroundColor={options[selectedIndex]?.selectedBackgroundColor || selectedBackgroundColor}
+            selectedBackgroundColor={
+                options[selectedIndex]?.selectedBackgroundColor || selectedBackgroundColor
+            }
             wrapperBorderRadius={wrapperBorderRadius}
             optionBorderRadius={optionBorderRadius}
             selectionIndicatorMargin={selectionIndicatorMargin}
