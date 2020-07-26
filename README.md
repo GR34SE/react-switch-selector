@@ -1,4 +1,4 @@
-# [react-switch-selector](https://github.com/GR34SE/react-switch-selector) &middot; [![downloads](https://img.shields.io/npm/dm/react-switch-selector)](https://www.npmjs.com/package/react-switch-selector) [![version](https://img.shields.io/github/package-json/v/GR34SE/react-switch-selector)](https://github.com/GR34SE/react-switch-selector) [![HitCount](http://hits.dwyl.com/GR34SE/react-switch-selector.svg)](https://www.npmjs.com/package/react-switch-selector)
+# [react-switch-selector](https://github.com/GR34SE/react-switch-selector) &middot; [![downloads](https://img.shields.io/npm/dm/react-switch-selector)](https://www.npmjs.com/package/react-switch-selector) [![version](https://img.shields.io/github/package-json/v/GR34SE/react-switch-selector)](https://github.com/GR34SE/react-switch-selector) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ### Examples
 ###### Default
@@ -71,6 +71,7 @@ import SwitchSelector from "react-switch-selector";
 | options                    | Array of OptionType     | []                      | true      | Options array to render. Each item has a label value and optional styling props  |
 | onChange                   | Function                | (v) => (console.log(v)) | true      | onChange callback that returns selected Option's value                           |
 | initialSelectedIndex       | number                  | 0                       | false     | Initially selected index of options array                                        |
+| forcedSelectedIndex        | number                  | undefined               | false     | Force selectedIndex with this prop                                               |
 | border                     | string/number           | 0                       | false     | Border of wrapping div                                                           |
 | backgroundColor            | string                  | #ecf0f1                 | false     | Background color of wrapping div                                                 |
 | selectedBackgroundColor    | string                  | #2ecc71                 | false     | Background of selected Option                                                    |
