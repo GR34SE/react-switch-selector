@@ -7,6 +7,7 @@ import {
     OptionInput
 } from "./SwitchSelector.styled";
 import {StylingPropsTypes} from "./SwitchSelector.styled";
+import {defaultColors} from "./defaultColors";
 
 export type OptionType = {
     label: string | number | React.ReactElement | HTMLElement;
@@ -44,13 +45,13 @@ const SwitchSelector: React.FC<Props> = (props) => {
 
     const {
         border = 0,
-        backgroundColor = "#ecf0f1",
-        selectedBackgroundColor = "#2ecc71",
+        backgroundColor = defaultColors.backgroundColor,
+        selectedBackgroundColor = defaultColors.selectedBackgroundColor,
         wrapperBorderRadius = 20,
         optionBorderRadius = 18,
         fontSize = 14,
-        fontColor = "#000",
-        selectedFontColor = "#fff",
+        fontColor = defaultColors.fontColor,
+        selectedFontColor = defaultColors.selectedFontColor,
         selectionIndicatorMargin = 2,
         forcedSelectedIndex
     } = props;
