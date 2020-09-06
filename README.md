@@ -30,45 +30,45 @@ import SwitchSelector from "react-switch-selector";
 ```
 
 ```jsx
-    const options = [
-        {
-            label: "Foo",
-            value: {
-                foo: true
-            },
-            selectedBackgroundColor: "#0097e6",
-        },
-        {
-            label: "Bar",
-            value: "bar",
-            selectedBackgroundColor: "#fbc531"
-        }
-    ];
+const options = [
+   {
+       label: <span>Foo</span>,
+       value: {
+            foo: true
+       },
+       selectedBackgroundColor: "#0097e6",
+   },
+   {
+       label: "Bar",
+       value: "bar",
+       selectedBackgroundColor: "#fbc531"
+   }
+];
 
-    const onChange = (newValue) => {
-        console.log(newValue);
-    };
+const onChange = (newValue) => {
+    console.log(newValue);
+};
 
-    const initialSelectedIndex = options.findIndex(({value}) => value === "bar");
+const initialSelectedIndex = options.findIndex(({value}) => value === "bar");
 
-    return (
-        <div className="your-required-wrapper" style={{width: 100, height: 30}}>
-            <SwitchSelector
-                onChange={onChange}
-                options={options}
-                initialSelectedIndex={initialSelectedIndex}
-                backgroundColor={"#353b48"}
-                fontColor={"#f5f6fa"}
-            />
-        </div>
-    );
+return (
+    <div className="your-required-wrapper" style={{width: 100, height: 30}}>
+        <SwitchSelector
+            onChange={onChange}
+            options={options}
+            initialSelectedIndex={initialSelectedIndex}
+            backgroundColor={"#353b48"}
+            fontColor={"#f5f6fa"}
+        />
+    </div>
+);
 ```
 
 ### Props
 
-| Prop  name                 | Type                    | Default                 | Required  | Note                                                                             |
-| -------------------------  | ----------------------- | ----------------------- | --------- | -------------------------------------------------------------------------------- |
-| options                    | Array of OptionType     | []                      | true      | Options array to render. Each item has a label value and optional styling props  |
+| Prop name                  | Type                    | Default                 | Required  | Note                                                                             |
+| -------------------------- | ----------------------- | ----------------------- | --------- | -------------------------------------------------------------------------------- |
+| options                    | Array of OptionType     | []                      | true      | Options array to render. Each item has a label, value and optional styling props  |
 | onChange                   | Function                | (v) => (console.log(v)) | true      | onChange callback that returns selected Option's value                           |
 | initialSelectedIndex       | number                  | 0                       | false     | Initially selected index of options array                                        |
 | forcedSelectedIndex        | number                  | undefined               | false     | Force selectedIndex with this prop                                               |
@@ -84,13 +84,13 @@ import SwitchSelector from "react-switch-selector";
 
 #### OptionType
 
-| Property  name             | Type                    | Default             | Required  | Note                                                                             |
-| -------------------------  | ----------------------- | ------------------- | --------- | -------------------------------------------------------------------------------- |
-| label                      | string                  | undefined           | true      | Option's text label                                                              |
-| value                      | any                     | undefined           | true      | Option's value that is returned by onChange callback                             |
-| selectedBackgroundColor    | string                  | undefined           | false     | Background of this selected Option                                               |
-| fontColor                  | string                  | undefined           | false     | Font color of this Option's label                                                |
-| selectedFontColor          | string                  | undefined           | false     | Font color of this selected Option's label                                       |
+| Property name              | Type                                   | Default             | Required  | Note                                                                             |
+| -------------------------- | -------------------------------------- | ------------------- | --------- | -------------------------------------------------------------------------------- |
+| label                      | string/number/ReactElement/HTMLElement | undefined           | true      | Option's label                                                              |
+| value                      | any                                    | undefined           | true      | Option's value that is returned by onChange callback                             |
+| selectedBackgroundColor    | string                                 | undefined           | false     | Background of this selected Option                                               |
+| fontColor                  | string                                 | undefined           | false     | Font color of this Option's label                                                |
+| selectedFontColor          | string                                 | undefined           | false     | Font color of this selected Option's label                                       |
 
 ###### Overriding styles by pure css classes is available with react-switch-selector prefix:
 

@@ -1,7 +1,7 @@
 {
   "name": "react-switch-selector",
-  "description": "Data switch/toggle component for React️",
-  "version": "1.2.0",
+  "description": "Data switch/toggle component for React️ ⚛",
+  "version": "1.2.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/GR34SE/react-switch-selector.git",

@@ -9,7 +9,7 @@ import {
 import {StylingPropsTypes} from "./SwitchSelector.styled";
 
 export type OptionType = {
-    label: string;
+    label: string | number | React.ReactElement | HTMLElement;
     value: unknown;
     selectedBackgroundColor?: string;
     fontColor?: string;
@@ -17,7 +17,7 @@ export type OptionType = {
 };
 
 export interface Props extends Partial<StylingPropsTypes> {
-    onChange: (x?: unknown) => unknown | void;
+    onChange: <T extends any>(val: T) => void;
     options: Array<OptionType>;
     initialSelectedIndex?: number;
     forcedSelectedIndex?: number;
@@ -75,6 +75,13 @@ const SwitchSelector: React.FC<Props> = (props) => {
     const renderOptions = (): React.ReactElement[] => {
         return options.map((option, idx) => {
             const _optionId = `rss-option-${idx}`;
+            const isRawText = typeof option.label === "string";
+
+            const labelRawTextProps = {
+                fontSize,
+                fontColor: option.fontColor || fontColor,
+                selectedFontColor: option.selectedFontColor || selectedFontColor
+            };
 
             return (
                 <OptionItem
@@ -86,9 +93,8 @@ const SwitchSelector: React.FC<Props> = (props) => {
                     <OptionItemLabel
                         className={`${classNamesPrefix}-option-label`}
                         selected={selectedIndex === idx}
-                        fontSize={fontSize}
-                        fontColor={option.fontColor || fontColor}
-                        selectedFontColor={option.selectedFontColor || selectedFontColor}
+                        isRawText={isRawText}
+                        {...(isRawText ? labelRawTextProps : {})}
                     >
                         <OptionInput
                             type="radio"

@@ -69,7 +69,8 @@ export const OptionItem = styled("div")<OptionItemPropsTypes>`
 `;
 
 interface OptionItemLabelPropsTypes
-    extends Pick<StylingPropsTypes, "fontSize" | "fontColor" | "selectedFontColor"> {
+    extends Partial<Pick<StylingPropsTypes, "fontSize" | "fontColor" | "selectedFontColor">> {
+    isRawText: boolean;
     selected: boolean;
 }
 
@@ -77,13 +78,14 @@ export const OptionItemLabel = styled("label")<OptionItemLabelPropsTypes>`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: ${(props) => props.fontSize}px;
     width: 100%;
     height: 100%;
-    color: ${(props) => (props.selected ? props.selectedFontColor : props.fontColor)};
     z-index: 2;
     transition: color 0.1s linear;
     cursor: pointer;
+    font-size: ${(props) => (props.isRawText ? props.fontSize + "px" : "unset")};
+    color: ${(props) =>
+        props.isRawText ? (props.selected ? props.selectedFontColor : props.fontColor) : "unset"};
 `;
 
 export const OptionInput = styled.input`
