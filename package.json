@@ -15,7 +15,7 @@
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix"
   },
   "devDependencies": {
-    "@types/react": "17.0.11",
+    "@types/react": "17.0.14",
     "@types/react-dom": "16.9.8",
     "@typescript-eslint/eslint-plugin": "4.0.1",
     "@typescript-eslint/parser": "4.0.1",
