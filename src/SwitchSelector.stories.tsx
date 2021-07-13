@@ -52,3 +52,9 @@ export const ThreeOptions = Template.bind({});
 ThreeOptions.args = {
     ...switchSelectorPropsMock
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    ...switchSelectorPropsMock,
+    disabled: true
+};

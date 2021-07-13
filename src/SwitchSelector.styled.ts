@@ -14,7 +14,8 @@ const propToOmitInDom = [
     "backgroundColor",
     "selectedBackgroundColor",
     "wrapperBorderRadius",
-    "selectionIndicatorMargin"
+    "selectionIndicatorMargin",
+    "disabled"
 ];
 
 setup(
@@ -48,6 +49,7 @@ interface SwitchSelectorWrapperPropTypes
     > {
     selectedIndex: number;
     optionsAmount: number;
+    disabled: boolean;
 }
 
 export const SwitchSelectorWrapper = styled("div")<SwitchSelectorWrapperPropTypes>`
@@ -58,6 +60,7 @@ export const SwitchSelectorWrapper = styled("div")<SwitchSelectorWrapperPropType
     width: 100%;
     height: 100%;
     position: relative;
+    opacity: ${(props) => (props.disabled ? 0.7 : 1)};
 
     &::before {
         top: 50%;
@@ -96,6 +99,7 @@ interface OptionItemLabelPropsTypes
     extends Partial<Pick<StylingPropsTypes, "fontSize" | "fontColor" | "selectedFontColor">> {
     isRawText: boolean;
     selected: boolean;
+    disabled: boolean;
 }
 
 export const OptionItemLabel = styled("label")<OptionItemLabelPropsTypes>`
@@ -106,7 +110,7 @@ export const OptionItemLabel = styled("label")<OptionItemLabelPropsTypes>`
     height: 100%;
     z-index: 2;
     transition: color 0.1s linear;
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
     font-size: ${(props) => (props.isRawText ? props.fontSize + "px" : "unset")};
     color: ${(props) =>
         props.isRawText ? (props.selected ? props.selectedFontColor : props.fontColor) : "unset"};

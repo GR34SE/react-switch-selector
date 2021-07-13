@@ -22,6 +22,7 @@ export interface Props extends Partial<StylingPropsTypes> {
     options: Array<OptionType>;
     initialSelectedIndex?: number;
     forcedSelectedIndex?: number;
+    disabled?: boolean;
 }
 
 const classNamesPrefix = "react-switch-selector";
@@ -53,7 +54,8 @@ const SwitchSelector: React.FC<Props> = (props) => {
         fontColor = defaultColors.fontColor,
         selectedFontColor = defaultColors.selectedFontColor,
         selectionIndicatorMargin = 2,
-        forcedSelectedIndex
+        forcedSelectedIndex,
+        disabled = false
     } = props;
 
     useEffect(() => {
@@ -67,7 +69,7 @@ const SwitchSelector: React.FC<Props> = (props) => {
     }, [forcedSelectedIndex, options, selectedIndex]);
 
     const handleOnClick = (idx: number): void => {
-        if (idx !== selectedIndex) {
+        if (!disabled && idx !== selectedIndex) {
             setSelectedIndex(idx);
             onChange(options[idx].value);
         }
@@ -95,6 +97,8 @@ const SwitchSelector: React.FC<Props> = (props) => {
                         className={`${classNamesPrefix}-option-label`}
                         selected={selectedIndex === idx}
                         isRawText={isRawText}
+                        disabled={disabled}
+                        aria-disabled={disabled}
                         {...(isRawText ? labelRawTextProps : {})}
                     >
                         <OptionInput
@@ -115,7 +119,7 @@ const SwitchSelector: React.FC<Props> = (props) => {
         <SwitchSelectorWrapper
             selectedIndex={selectedIndex}
             optionsAmount={options.length}
-            className={`${classNamesPrefix}-wrapper`}
+            className={`${classNamesPrefix}-wrapper ${disabled ? "disabled" : ""}`}
             border={border}
             backgroundColor={backgroundColor}
             selectedBackgroundColor={
@@ -124,6 +128,7 @@ const SwitchSelector: React.FC<Props> = (props) => {
             wrapperBorderRadius={wrapperBorderRadius}
             optionBorderRadius={optionBorderRadius}
             selectionIndicatorMargin={selectionIndicatorMargin}
+            disabled={disabled}
         >
             {renderOptions()}
         </SwitchSelectorWrapper>
