@@ -1,4 +1,28 @@
-import styled from "@emotion/styled";
+import {createElement} from "react";
+import {setup, styled} from "goober";
+import {shouldForwardProp} from "goober/should-forward-prop";
+
+const propToOmitInDom = [
+    "fontSize",
+    "fontColor",
+    "selectedFontColor",
+    "optionsAmount",
+    "optionBorderRadius",
+    "isRawText",
+    "selectedIndex",
+    "border",
+    "backgroundColor",
+    "selectedBackgroundColor",
+    "wrapperBorderRadius",
+    "selectionIndicatorMargin"
+];
+
+setup(
+    createElement,
+    undefined,
+    undefined,
+    shouldForwardProp((prop) => !propToOmitInDom.includes(prop))
+);
 
 export type StylingPropsTypes = {
     border: string | number;
@@ -35,15 +59,15 @@ export const SwitchSelectorWrapper = styled("div")<SwitchSelectorWrapperPropType
     height: 100%;
     position: relative;
 
-    ::before {
+    &::before {
         top: 50%;
         left: ${(props) => (props.selectedIndex / props.optionsAmount) * 100}%;
         content: "";
         position: absolute;
         height: calc(100% - ${(props) => 2 * props.selectionIndicatorMargin}px);
         width: calc(
-            ${(props) => (1 / props.optionsAmount) * 100}% -
-                ${(props) => 2 * props.selectionIndicatorMargin}px
+            ${(props) => (1 / props.optionsAmount) * 100}%${" - "}${(props) =>
+                    2 * props.selectionIndicatorMargin}px
         );
         border-radius: ${(props) => props.optionBorderRadius}px;
         border: ${(props) => props.selectionIndicatorMargin}px solid
@@ -88,7 +112,7 @@ export const OptionItemLabel = styled("label")<OptionItemLabelPropsTypes>`
         props.isRawText ? (props.selected ? props.selectedFontColor : props.fontColor) : "unset"};
 `;
 
-export const OptionInput = styled.input`
+export const OptionInput = styled("input")`
     width: 0;
     height: 0;
     opacity: 0;
