@@ -3,7 +3,6 @@ import {ComponentStory, ComponentMeta} from "@storybook/react";
 import SwitchSelector, {Props} from "./SwitchSelector";
 
 const switchSelectorPropsMock: Props = {
-    onChange: (value) => console.log(value),
     options: [
         {
             label: "Option 1",

@@ -18,8 +18,8 @@ export type OptionType = {
 };
 
 export interface Props extends Partial<StylingPropsTypes> {
-    onChange: <T extends any>(val: T) => void;
     options: Array<OptionType>;
+    onChange?: <T extends any>(val: T) => void;
     initialSelectedIndex?: number;
     forcedSelectedIndex?: number;
     disabled?: boolean;
@@ -28,11 +28,7 @@ export interface Props extends Partial<StylingPropsTypes> {
 const classNamesPrefix = "react-switch-selector";
 
 const SwitchSelector: React.FC<Props> = (props) => {
-    const {
-        onChange = (value): void => console.log(value),
-        options = [],
-        initialSelectedIndex = 0
-    } = props;
+    const {onChange = (): void => {}, options = [], initialSelectedIndex = 0} = props;
     const canApplyInitialSelectedIndex = !!options[initialSelectedIndex];
     const [selectedIndex, setSelectedIndex] = React.useState(
         canApplyInitialSelectedIndex ? initialSelectedIndex : 0
