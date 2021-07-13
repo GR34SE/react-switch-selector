@@ -68,16 +68,16 @@ const SwitchSelector: React.FC<Props> = (props) => {
         }
     }, [forcedSelectedIndex, options, selectedIndex]);
 
-    const handleOnClick = (idx: number): void => {
-        if (!disabled && idx !== selectedIndex) {
-            setSelectedIndex(idx);
-            onChange(options[idx].value);
+    const handleOnClick = (index: number): void => {
+        if (!disabled && index !== selectedIndex) {
+            setSelectedIndex(index);
+            onChange(options[index].value);
         }
     };
 
     const renderOptions = (): React.ReactElement[] => {
-        return options.map((option, idx) => {
-            const _optionId = `rss-option-${idx}`;
+        return options.map((option, index) => {
+            const _optionId = `rss-option-${index}`;
             const isRawText = typeof option.label === "string";
 
             const labelRawTextProps = {
@@ -95,7 +95,7 @@ const SwitchSelector: React.FC<Props> = (props) => {
                 >
                     <OptionItemLabel
                         className={`${classNamesPrefix}-option-label`}
-                        selected={selectedIndex === idx}
+                        selected={selectedIndex === index}
                         isRawText={isRawText}
                         disabled={disabled}
                         aria-disabled={disabled}
@@ -104,8 +104,8 @@ const SwitchSelector: React.FC<Props> = (props) => {
                         <OptionInput
                             type="radio"
                             id={_optionId}
-                            onChange={(): void => handleOnClick(idx)}
-                            checked={selectedIndex === idx}
+                            onChange={(): void => handleOnClick(index)}
+                            checked={selectedIndex === index}
                         />
                         {option.label}
                     </OptionItemLabel>
