@@ -68,10 +68,10 @@ return (
 
 | Prop name                  | Type                    | Default                 | Required  | Note                                                                             |
 | -------------------------- | ----------------------- | ----------------------- | --------- | -------------------------------------------------------------------------------- |
-| options                    | Array of OptionType     | []                      | true      | Options array to render. Each item has a label, value and optional styling props  |
+| options                    | Array of OptionType     | []                      | true      | Options array to render. Each item has a label, value and optional styling props |
 | onChange                   | Function                | (v) => (console.log(v)) | true      | onChange callback that returns selected Option's value                           |
 | initialSelectedIndex       | number                  | 0                       | false     | Initially selected index of options array                                        |
-| forcedSelectedIndex        | number                  | undefined               | false     | Force selectedIndex with this prop                                               |
+| forcedSelectedIndex        | number                  | undefined               | false     | Force selectedIndex with this prop (can be also used to resetting the toggle)    |
 | border                     | string/number           | 0                       | false     | Border of wrapping div                                                           |
 | backgroundColor            | string                  | #ecf0f1                 | false     | Background color of wrapping div                                                 |
 | selectedBackgroundColor    | string                  | #2ecc71                 | false     | Background of selected Option                                                    |
@@ -80,7 +80,8 @@ return (
 | fontSize                   | number                  | 14                      | false     | Font size of Option's label                                                      |
 | fontColor                  | string                  | #000                    | false     | Font color of Option's label                                                     |
 | selectedFontColor          | string                  | #fff                    | false     | Font color of selected Option's label                                            |
-| selectionIndicatorMargin   | number                  | 2                       | false     | Inner px margin of selected option indicator                                              |
+| selectionIndicatorMargin   | number                  | 2                       | false     | Inner px margin of selected option indicator                                     |
+| disabled                   | boolean                 | false                   | false     | Disabling the toggle                                                             |
 
 #### OptionType
 
@@ -95,5 +96,6 @@ return (
 ###### Overriding styles by pure css classes is available with react-switch-selector prefix:
 
 - react-switch-selector-wrapper - component root div
+- react-switch-selector-disabled - toggle in disabled state
 - react-switch-selector-option - each option
 - react-switch-selector-option-label - each option item's label
