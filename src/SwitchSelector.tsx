@@ -34,12 +34,6 @@ const SwitchSelector: React.FC<Props> = (props) => {
         canApplyInitialSelectedIndex ? initialSelectedIndex : 0
     );
 
-    if (!canApplyInitialSelectedIndex) {
-        console.warn(
-            "[react-switch-selector]: Passed initialSelectedIndex prop doesn't match item from your options array"
-        );
-    }
-
     const {
         border = 0,
         backgroundColor = defaultColors.backgroundColor,
