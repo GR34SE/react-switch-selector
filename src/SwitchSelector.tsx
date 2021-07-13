@@ -109,7 +109,9 @@ const SwitchSelector: React.FC<Props> = (props) => {
         <SwitchSelectorWrapper
             selectedIndex={selectedIndex}
             optionsAmount={options.length}
-            className={`${classNamesPrefix}-wrapper ${disabled ? "disabled" : ""}`}
+            className={`${classNamesPrefix}-wrapper ${
+                disabled ? `${classNamesPrefix}-disabled` : ""
+            }`}
             border={border}
             backgroundColor={backgroundColor}
             selectedBackgroundColor={
