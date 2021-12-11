@@ -3395,7 +3395,7 @@ array-flatten@1.1.1:
   resolved "https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
   integrity sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
 
-array-includes@^3.0.3, array-includes@^3.1.2, array-includes@^3.1.3:
+array-includes@^3.0.3, array-includes@^3.1.2:
   version "3.1.3"
   resolved "https://registry.npmjs.org/array-includes/-/array-includes-3.1.3.tgz#c7f619b382ad2afaf5326cddfdc0afc61af7690a"
   integrity sha512-gcem1KlBU7c9rB+Rq8/3PPKsK2kjqeEBa3bD5kkQo4nYlOHQCJqIJFqBXDEfwaRuYTT4E+FxA9xez7Gf/e3Q7A==
@@ -3439,7 +3439,7 @@ array-unique@^0.3.2:
   resolved "https://registry.npmjs.org/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
 
-array.prototype.flat@^1.2.1, array.prototype.flat@^1.2.4:
+array.prototype.flat@^1.2.1:
   version "1.2.4"
   resolved "https://registry.npmjs.org/array.prototype.flat/-/array.prototype.flat-1.2.4.tgz#6ef638b43312bd401b4c6199fdec7e2dc9e9a123"
   integrity sha512-4470Xi3GAPAjZqFcljX2xzckv1qeKPizoNkiS0+O4IoPR2ZNpcjE0pkhdihlDouK+x6QOast26B4Q/O9DJnwSg==
@@ -3447,6 +3447,15 @@ array.prototype.flat@^1.2.1, array.prototype.flat@^1.2.4:
     call-bind "^1.0.0"
     define-properties "^1.1.3"
     es-abstract "^1.18.0-next.1"
+
+array.prototype.flat@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/array.prototype.flat/-/array.prototype.flat-1.2.5.tgz#07e0975d84bbc7c48cd1879d609e682598d33e13"
+  integrity sha512-KaYU+S+ndVqyUnignHftkwc58o3uVU1jzczILJ1tN2YaIZpFIKBiP/x/j97E5MVPsaCloPbqWLB/8qCTVvT2qg==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.19.0"
 
 array.prototype.flatmap@^1.2.1:
   version "1.2.4"
@@ -5668,35 +5677,33 @@ eslint-import-resolver-node@^0.3.6:
     debug "^3.2.7"
     resolve "^1.20.0"
 
-eslint-module-utils@^2.6.2:
+eslint-module-utils@^2.7.1:
   version "2.7.1"
-  resolved "https://registry.npmjs.org/eslint-module-utils/-/eslint-module-utils-2.7.1.tgz#b435001c9f8dd4ab7f6d0efcae4b9696d4c24b7c"
+  resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.7.1.tgz#b435001c9f8dd4ab7f6d0efcae4b9696d4c24b7c"
   integrity sha512-fjoetBXQZq2tSTWZ9yWVl2KuFrTZZH3V+9iD1V1RfpDgxzJR+mPd/KZmMiA8gbPqdBzpNiEHOuT7IYEWxrH0zQ==
   dependencies:
     debug "^3.2.7"
     find-up "^2.1.0"
     pkg-dir "^2.0.0"
 
-eslint-plugin-import@2.24.1:
-  version "2.24.1"
-  resolved "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.24.1.tgz#64aba8b567a1ba9921d5465586e86c491b8e2135"
-  integrity sha512-KSFWhNxPH8OGJwpRJJs+Z7I0a13E2iFQZJIvSnCu6KUs4qmgAm3xN9GYBCSoiGWmwA7gERZPXqYQjcoCROnYhQ==
+eslint-plugin-import@2.25.3:
+  version "2.25.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.25.3.tgz#a554b5f66e08fb4f6dc99221866e57cfff824766"
+  integrity sha512-RzAVbby+72IB3iOEL8clzPLzL3wpDrlwjsTBAQXgyp5SeTqqY+0bFubwuo+y/HLhNZcXV4XqTBO4LGsfyHIDXg==
   dependencies:
-    array-includes "^3.1.3"
-    array.prototype.flat "^1.2.4"
+    array-includes "^3.1.4"
+    array.prototype.flat "^1.2.5"
     debug "^2.6.9"
     doctrine "^2.1.0"
     eslint-import-resolver-node "^0.3.6"
-    eslint-module-utils "^2.6.2"
-    find-up "^2.0.0"
+    eslint-module-utils "^2.7.1"
     has "^1.0.3"
-    is-core-module "^2.6.0"
+    is-core-module "^2.8.0"
+    is-glob "^4.0.3"
     minimatch "^3.0.4"
-    object.values "^1.1.4"
-    pkg-up "^2.0.0"
-    read-pkg-up "^3.0.0"
+    object.values "^1.1.5"
     resolve "^1.20.0"
-    tsconfig-paths "^3.10.1"
+    tsconfig-paths "^3.11.0"
 
 eslint-plugin-prettier@4.0.0:
   version "4.0.0"
@@ -6245,7 +6252,7 @@ find-up@4.1.0, find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-find-up@^2.0.0, find-up@^2.1.0:
+find-up@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
   integrity sha1-RdG35QbHF93UgndaK3eSCjwMV6c=
@@ -7489,9 +7496,9 @@ is-core-module@^2.2.0:
   dependencies:
     has "^1.0.3"
 
-is-core-module@^2.6.0:
+is-core-module@^2.8.0:
   version "2.8.0"
-  resolved "https://registry.npmjs.org/is-core-module/-/is-core-module-2.8.0.tgz#0321336c3d0925e497fd97f5d95cb114a5ccd548"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.8.0.tgz#0321336c3d0925e497fd97f5d95cb114a5ccd548"
   integrity sha512-vd15qHsaqrRL7dtH6QNuy0ndJmRDrS9HAM1CAiSifNUFv4x1a0CCVsj18hJ1mShxIG6T2i1sO78MkP56r0nYRw==
   dependencies:
     has "^1.0.3"
@@ -7599,6 +7606,13 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@~4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/is-glob/-/is-glob-4.0.1.tgz#7567dbe9f2f5e2467bc77ab83c4a29482407a5dc"
   integrity sha512-5G0tKtBTFImOqDnLB2hG6Bp2qcKEFduo4tZu9MT/H6NQv/ghhy30o55ufafxJ/LdH79LLs2Kfrn85TLKyA7BUg==
+  dependencies:
+    is-extglob "^2.1.1"
+
+is-glob@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-4.0.3.tgz#64f61e42cbbb2eec2071a9dac0b28ba1e65d5084"
+  integrity sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==
   dependencies:
     is-extglob "^2.1.1"
 
@@ -8170,16 +8184,6 @@ lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
-
-load-json-file@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/load-json-file/-/load-json-file-4.0.0.tgz#2f5f45ab91e33216234fd53adab668eb4ec0993b"
-  integrity sha1-L19Fq5HjMhYjT9U62rZo607AmTs=
-  dependencies:
-    graceful-fs "^4.1.2"
-    parse-json "^4.0.0"
-    pify "^3.0.0"
-    strip-bom "^3.0.0"
 
 loader-runner@^2.4.0:
   version "2.4.0"
@@ -8922,7 +8926,7 @@ node-releases@^2.0.1:
   resolved "https://registry.npmjs.org/node-releases/-/node-releases-2.0.1.tgz#3d1d395f204f1f2f29a54358b9fb678765ad2fc5"
   integrity sha512-CqyzN6z7Q6aMeF/ktcMVTzhAHCEpf8SOarwpzpf8pNBY2k5/oM34UHldUwp8VKI7uxct2HxSRdJjBaZeESzcxA==
 
-normalize-package-data@^2.3.2, normalize-package-data@^2.5.0:
+normalize-package-data@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
   integrity sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==
@@ -9119,7 +9123,7 @@ object.pick@^1.3.0:
   dependencies:
     isobject "^3.0.1"
 
-object.values@^1.1.0, object.values@^1.1.4:
+object.values@^1.1.0:
   version "1.1.4"
   resolved "https://registry.npmjs.org/object.values/-/object.values-1.1.4.tgz#0d273762833e816b693a637d30073e7051535b30"
   integrity sha512-TnGo7j4XSnKQoK3MfvkzqKCi0nVe/D9I9IjwTNYdb/fxYHpjrluHVOgw0AF6jrRFGMPHdfuidR09tIDiIvnaSg==
@@ -9624,13 +9628,6 @@ pkg-up@3.1.0:
   integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
   dependencies:
     find-up "^3.0.0"
-
-pkg-up@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/pkg-up/-/pkg-up-2.0.0.tgz#c819ac728059a461cab1c3889a2be3c49a004d7f"
-  integrity sha1-yBmscoBZpGHKscOImivjxJoATX8=
-  dependencies:
-    find-up "^2.1.0"
 
 pnp-webpack-plugin@1.6.4:
   version "1.6.4"
@@ -10563,14 +10560,6 @@ react@17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-read-pkg-up@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-3.0.0.tgz#3ed496685dba0f8fe118d0691dc51f4a1ff96f07"
-  integrity sha1-PtSWaF26D4/hGNBpHcUfSh/5bwc=
-  dependencies:
-    find-up "^2.0.0"
-    read-pkg "^3.0.0"
-
 read-pkg-up@^7.0.1:
   version "7.0.1"
   resolved "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-7.0.1.tgz#f3a6135758459733ae2b95638056e1854e7ef507"
@@ -10579,15 +10568,6 @@ read-pkg-up@^7.0.1:
     find-up "^4.1.0"
     read-pkg "^5.2.0"
     type-fest "^0.8.1"
-
-read-pkg@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/read-pkg/-/read-pkg-3.0.0.tgz#9cbc686978fee65d16c00e2b19c237fcf6e38389"
-  integrity sha1-nLxoaXj+5l0WwA4rGcI3/Pbjg4k=
-  dependencies:
-    load-json-file "^4.0.0"
-    normalize-package-data "^2.3.2"
-    path-type "^3.0.0"
 
 read-pkg@^5.2.0:
   version "5.2.0"
@@ -12141,9 +12121,9 @@ ts-pnp@^1.1.6:
   resolved "https://registry.npmjs.org/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
-tsconfig-paths@^3.10.1:
+tsconfig-paths@^3.11.0:
   version "3.12.0"
-  resolved "https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.12.0.tgz#19769aca6ee8f6a1a341e38c8fa45dd9fb18899b"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.12.0.tgz#19769aca6ee8f6a1a341e38c8fa45dd9fb18899b"
   integrity sha512-e5adrnOYT6zqVnWqZu7i/BQ3BnhzvGbjEjejFXO20lKIKpwTaupkCPgEfv4GZK1IBciJUEhYs3J3p75FdaTFVg==
   dependencies:
     "@types/json5" "^0.0.29"
