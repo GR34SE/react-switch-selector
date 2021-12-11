@@ -9,7 +9,7 @@ import {
 import {SwitchSelectorProps} from "./SwitchSelector.props";
 import {defaultColors} from "./defaultColors";
 
-const classNamesPrefix = "react-switch-selector";
+const CLASS_NAMES_PREFIX = "react-switch-selector";
 
 const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
     const {onChange = (): void => {}, options = [], initialSelectedIndex = 0} = props;
@@ -64,11 +64,11 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
                 <OptionItem
                     key={_optionId}
                     optionsAmount={options.length}
-                    className={`${classNamesPrefix}-option`}
+                    className={`${CLASS_NAMES_PREFIX}-option`}
                     optionBorderRadius={optionBorderRadius}
                 >
                     <OptionItemLabel
-                        className={`${classNamesPrefix}-option-label`}
+                        className={`${CLASS_NAMES_PREFIX}-option-label`}
                         selected={selectedIndex === index}
                         isRawText={isRawText}
                         disabled={disabled}
@@ -93,8 +93,8 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
         <SwitchSelectorWrapper
             selectedIndex={selectedIndex}
             optionsAmount={options.length}
-            className={`${classNamesPrefix}-wrapper ${
-                disabled ? `${classNamesPrefix}-disabled` : ""
+            className={`${CLASS_NAMES_PREFIX}-wrapper ${
+                disabled ? `${CLASS_NAMES_PREFIX}-disabled` : ""
             }`}
             border={border}
             backgroundColor={backgroundColor}
