@@ -1,9 +1,9 @@
 import React from "react";
 import {StylingPropsTypes} from "./SwitchSelector.styled";
 
-export type OptionType = {
+export type OptionType<T = unknown> = {
     label: string | number | React.ReactElement | HTMLElement;
-    value: unknown;
+    value: T;
     selectedBackgroundColor?: string;
     fontColor?: string;
     selectedFontColor?: string;
@@ -11,7 +11,7 @@ export type OptionType = {
 
 export interface SwitchSelectorProps extends Partial<StylingPropsTypes> {
     options: Array<OptionType>;
-    onChange?: <T extends any>(val: T) => void;
+    onChange?: <T>(selectedOptionValue: T | unknown) => void;
     initialSelectedIndex?: number;
     forcedSelectedIndex?: number;
     disabled?: boolean;

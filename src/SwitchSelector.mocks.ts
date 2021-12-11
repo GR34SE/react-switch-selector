@@ -1,6 +1,8 @@
 import {OptionType, SwitchSelectorProps} from "./SwitchSelector.props";
 
-const options: OptionType[] = [
+type MockedOptionValue = boolean | number | string;
+
+const options: OptionType<MockedOptionValue>[] = [
     {
         label: "Option 1",
         value: true
@@ -17,7 +19,8 @@ const options: OptionType[] = [
 
 export const switchSelectorMocks: SwitchSelectorProps = {
     options,
-    onChange: (option): void => console.log("Selected option:", option),
+    onChange: (selectedOptionValue: MockedOptionValue): void =>
+        console.log("Selected option value:", selectedOptionValue),
     initialSelectedIndex: 0,
     forcedSelectedIndex: undefined,
     disabled: false
