@@ -6776,10 +6776,10 @@ globrex@^0.1.2:
   resolved "https://registry.npmjs.org/globrex/-/globrex-0.1.2.tgz#dd5d9ec826232730cd6793a5e33a9302985e6098"
   integrity sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==
 
-goober@2.0.41:
-  version "2.0.41"
-  resolved "https://registry.npmjs.org/goober/-/goober-2.0.41.tgz#0a3d786ff9917bcf2a096eef703bf717838cbec9"
-  integrity sha512-kwjegMT5018zWydhOQlQneCgCtrKJaPsru7TaBWmTYV0nsMeUrM6L6O8JmNYb9UbPMgWcmtf+9p4Y3oJabIH1A==
+goober@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.1.tgz#2328a6dae015c3cd30fc55a70090037a244ad2f6"
+  integrity sha512-TkGCqHxE4g5DtdpwxFCi53bXRtvw0BoSgCihVSIOioe9kfkqin5wXG8BQKykN0tjzmxZJ81qU2KWinZf5qKVlw==
 
 got@11.8.3:
   version "11.8.3"
