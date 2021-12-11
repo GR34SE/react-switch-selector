@@ -1,32 +1,11 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import SwitchSelector, {Props} from "./SwitchSelector";
-
-const switchSelectorPropsMock: Props = {
-    options: [
-        {
-            label: "Option 1",
-            value: true
-        },
-        {
-            label: "Option 2",
-            value: 20
-        },
-        {
-            label: "Option 3",
-            value: "30"
-        }
-    ]
-};
+import SwitchSelector from "./SwitchSelector";
+import {switchSelectorMocks} from "./SwitchSelector.mocks";
 
 export default {
     title: SwitchSelector.name,
-    component: SwitchSelector,
-    argTypes: {
-        selectedBackgroundColor: {control: "color"},
-        fontColor: {control: "color"},
-        selectedFontColor: {control: "color"}
-    }
+    component: SwitchSelector
 } as ComponentMeta<typeof SwitchSelector>;
 
 const Template: ComponentStory<typeof SwitchSelector> = (args) => (
@@ -37,23 +16,24 @@ const Template: ComponentStory<typeof SwitchSelector> = (args) => (
 
 export const OneOption = Template.bind({});
 OneOption.args = {
-    ...switchSelectorPropsMock,
-    options: switchSelectorPropsMock.options.slice(0, 1)
+    ...switchSelectorMocks,
+    options: switchSelectorMocks.options.slice(0, 1)
 };
 
 export const TwoOptions = Template.bind({});
 TwoOptions.args = {
-    ...switchSelectorPropsMock,
-    options: switchSelectorPropsMock.options.slice(0, 2)
+    ...switchSelectorMocks,
+    options: switchSelectorMocks.options.slice(0, 2)
 };
 
 export const ThreeOptions = Template.bind({});
 ThreeOptions.args = {
-    ...switchSelectorPropsMock
+    ...switchSelectorMocks,
+    initialSelectedIndex: Math.floor(switchSelectorMocks.options.length / 2)
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-    ...switchSelectorPropsMock,
+    ...switchSelectorMocks,
     disabled: true
 };

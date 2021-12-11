@@ -6,28 +6,12 @@ import {
     OptionItemLabel,
     OptionInput
 } from "./SwitchSelector.styled";
-import {StylingPropsTypes} from "./SwitchSelector.styled";
+import {SwitchSelectorProps} from "./SwitchSelector.props";
 import {defaultColors} from "./defaultColors";
-
-export type OptionType = {
-    label: string | number | React.ReactElement | HTMLElement;
-    value: unknown;
-    selectedBackgroundColor?: string;
-    fontColor?: string;
-    selectedFontColor?: string;
-};
-
-export interface Props extends Partial<StylingPropsTypes> {
-    options: Array<OptionType>;
-    onChange?: <T extends any>(val: T) => void;
-    initialSelectedIndex?: number;
-    forcedSelectedIndex?: number;
-    disabled?: boolean;
-}
 
 const classNamesPrefix = "react-switch-selector";
 
-const SwitchSelector: React.FC<Props> = (props) => {
+const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
     const {onChange = (): void => {}, options = [], initialSelectedIndex = 0} = props;
     const canApplyInitialSelectedIndex = !!options[initialSelectedIndex];
     const [selectedIndex, setSelectedIndex] = React.useState(
