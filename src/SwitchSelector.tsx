@@ -1,18 +1,18 @@
 import React from "react";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import {
     SwitchSelectorWrapper,
     OptionItem,
     OptionItemLabel,
     OptionInput
 } from "./SwitchSelector.styled";
-import {SwitchSelectorProps} from "./SwitchSelector.props";
-import {defaultColors} from "./defaultColors";
+import { SwitchSelectorProps } from "./SwitchSelector.props";
+import { defaultColors } from "./defaultColors";
 
 const CLASS_NAMES_PREFIX = "react-switch-selector";
 
 const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
-    const {onChange = (): void => {}, options = [], initialSelectedIndex = 0} = props;
+    const { onChange = (): void => { }, options = [], initialSelectedIndex = 0 } = props;
     const canApplyInitialSelectedIndex = !!options[initialSelectedIndex];
     const [selectedIndex, setSelectedIndex] = React.useState(
         canApplyInitialSelectedIndex ? initialSelectedIndex : 0
@@ -68,7 +68,8 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
                     optionBorderRadius={optionBorderRadius}
                 >
                     <OptionItemLabel
-                        className={`${CLASS_NAMES_PREFIX}-option-label`}
+                        className={`${CLASS_NAMES_PREFIX}-option-label ${option.className}`}
+                        id={option.id || _optionId}
                         selected={selectedIndex === index}
                         isRawText={isRawText}
                         disabled={disabled}
@@ -93,9 +94,8 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
         <SwitchSelectorWrapper
             selectedIndex={selectedIndex}
             optionsAmount={options.length}
-            className={`${CLASS_NAMES_PREFIX}-wrapper ${
-                disabled ? `${CLASS_NAMES_PREFIX}-disabled` : ""
-            }`}
+            className={`${CLASS_NAMES_PREFIX}-wrapper ${disabled ? `${CLASS_NAMES_PREFIX}-disabled` : ""
+                }`}
             border={border}
             backgroundColor={backgroundColor}
             selectedBackgroundColor={

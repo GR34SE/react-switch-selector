@@ -7,6 +7,8 @@ export type OptionType<T = unknown> = {
     selectedBackgroundColor?: string;
     fontColor?: string;
     selectedFontColor?: string;
+    className?: string;
+    id?: string;
 };
 
 export interface SwitchSelectorProps extends Partial<StylingPropsTypes> {
