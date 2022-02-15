@@ -19,7 +19,7 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
     );
 
     const _componentId = (Math.floor(Math.random() * (10000 - 1 + 1)) + 1).toString();
-    const _groupName = `rss-${_componentId}`
+    const _groupName = `rss-${_componentId}`;
 
     const {
         border = 0,
