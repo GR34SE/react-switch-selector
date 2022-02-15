@@ -14,6 +14,14 @@ const Template: ComponentStory<typeof SwitchSelector> = (args) => (
     </div>
 );
 
+const MultiTemplate: ComponentStory<typeof SwitchSelector> = (args) => (
+    <div style={{width: 300, height: 30}}>
+        <SwitchSelector {...args} />
+        <input type="text"></input>
+        <SwitchSelector {...args} />
+    </div>
+);
+
 export const OneOption = Template.bind({});
 OneOption.args = {
     ...switchSelectorMocks,
@@ -36,4 +44,10 @@ export const Disabled = Template.bind({});
 Disabled.args = {
     ...switchSelectorMocks,
     disabled: true
+};
+
+export const TwoSwitches = MultiTemplate.bind({});
+TwoSwitches.args = {
+    ...switchSelectorMocks,
+    options: switchSelectorMocks.options.slice(0, 2)
 };

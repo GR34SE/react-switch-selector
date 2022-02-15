@@ -18,6 +18,9 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
         canApplyInitialSelectedIndex ? initialSelectedIndex : 0
     );
 
+    const _componentId = (Math.floor(Math.random() * (10000 - 1 + 1)) + 1).toString();
+    const _groupName = `rss-${_componentId}`
+
     const {
         border = 0,
         backgroundColor = defaultColors.backgroundColor,
@@ -73,10 +76,12 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
                         isRawText={isRawText}
                         disabled={disabled}
                         aria-disabled={disabled}
+                        htmlFor={_optionId}
                         {...(isRawText ? labelRawTextProps : {})}
                     >
                         <OptionInput
                             type="radio"
+                            name={_groupName}
                             id={_optionId}
                             onChange={(): void => handleOnClick(index)}
                             checked={selectedIndex === index}
@@ -91,6 +96,7 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
     if (!options.length) return null;
     return (
         <SwitchSelectorWrapper
+            role="radiogroup"
             selectedIndex={selectedIndex}
             optionsAmount={options.length}
             className={`${CLASS_NAMES_PREFIX}-wrapper ${
