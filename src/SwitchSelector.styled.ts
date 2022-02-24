@@ -1,6 +1,7 @@
 import {createElement} from "react";
 import {setup, styled} from "goober";
 import {shouldForwardProp} from "goober/should-forward-prop";
+import CSS from "csstype";
 
 const propToOmitInDom = [
     "fontSize",
@@ -29,8 +30,8 @@ export type StylingPropsTypes = {
     border: string | number;
     backgroundColor: string;
     selectedBackgroundColor: string;
-    wrapperBorderRadius: number;
-    optionBorderRadius: number;
+    wrapperBorderRadius: number | CSS.Property.BorderRadius<string>;
+    optionBorderRadius: number | CSS.Property.BorderRadius<string>;
     fontSize: number;
     fontColor: string;
     selectedFontColor: string;
@@ -54,13 +55,15 @@ interface SwitchSelectorWrapperPropTypes
 
 export const SwitchSelectorWrapper = styled("div")<SwitchSelectorWrapperPropTypes>`
     display: flex;
-    border-radius: ${(props) => props.wrapperBorderRadius}px;
+    border-radius: ${({wrapperBorderRadius}) =>
+        typeof wrapperBorderRadius === "number" ? `${wrapperBorderRadius}px` : wrapperBorderRadius};
     border: ${(props) => props.border};
     background: ${(props) => props.backgroundColor};
     width: 100%;
     height: 100%;
     position: relative;
     opacity: ${(props) => (props.disabled ? 0.7 : 1)};
+    overflow: hidden;
 
     &::before {
         top: 50%;
@@ -72,7 +75,10 @@ export const SwitchSelectorWrapper = styled("div")<SwitchSelectorWrapperPropType
             ${(props) => (1 / props.optionsAmount) * 100}%${" - "}${(props) =>
                     2 * props.selectionIndicatorMargin}px
         );
-        border-radius: ${(props) => props.optionBorderRadius}px;
+        border-radius: ${({optionBorderRadius}) =>
+            typeof optionBorderRadius === "number"
+                ? `${optionBorderRadius}px`
+                : optionBorderRadius};
         border: ${(props) => props.selectionIndicatorMargin}px solid
             ${(props) => props.backgroundColor};
         background: ${(props) => props.selectedBackgroundColor};
@@ -92,7 +98,8 @@ export const OptionItem = styled("div")<OptionItemPropsTypes>`
     align-items: center;
     height: 100%;
     width: ${(props) => (1 / props.optionsAmount) * 100}%;
-    border-radius: ${(props) => props.optionBorderRadius}px;
+    border-radius: ${({optionBorderRadius}) =>
+        typeof optionBorderRadius === "number" ? `${optionBorderRadius}px` : optionBorderRadius};
 `;
 
 interface OptionItemLabelPropsTypes

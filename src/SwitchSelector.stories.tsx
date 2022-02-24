@@ -37,3 +37,18 @@ Disabled.args = {
     ...switchSelectorMocks,
     disabled: true
 };
+
+export const OuterBorderRadius = () => (
+    <div style={{width: 300, height: 30}}>
+        <SwitchSelector
+            wrapperBorderRadius={8}
+            optionBorderRadius={0}
+            selectionIndicatorMargin={0}
+            options={[
+                {label: "Foo", value: "Foo"},
+                {label: "Bar", value: "Bar"},
+                {label: "Baz", value: "Baz"}
+            ]}
+        />
+    </div>
+);

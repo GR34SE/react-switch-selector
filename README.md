@@ -12,6 +12,10 @@
 
 ![ReactSwitchSelector](examples/example-custom.gif)
 
+###### Outer border-radius
+
+![ReactSwitchSelector](examples/example-outer-border-radius.gif)
+
 ### Installation
 
 ```Shell
@@ -26,7 +30,7 @@ yarn add react-switch-selector
 
 ### Usage
 
-SwitchSelector will stretch to fill it's parent size (both width and height), so it's required create dedicated div container.
+SwitchSelector will stretch to fill its parent size (both width and height), so it's required create dedicated div container.
 
 ```jsx
 import SwitchSelector from "react-switch-selector";
@@ -69,22 +73,22 @@ return (
 
 ### Props
 
-| Prop name                  | Type                    | Default                 | Required  | Note                                                                             |
-| -------------------------- | ----------------------- | ----------------------- | --------- | -------------------------------------------------------------------------------- |
-| options                    | Array of OptionType     | []                      | true      | Options array to render. Each item has a label, value and optional styling props |
-| onChange                   | Function                | (v) => (console.log(v)) | true      | onChange callback that returns selected Option's value                           |
-| initialSelectedIndex       | number                  | 0                       | false     | Initially selected index of options array                                        |
-| forcedSelectedIndex        | number                  | undefined               | false     | Force selectedIndex with this prop (can be also used to resetting the toggle)    |
-| border                     | string/number           | 0                       | false     | Border of wrapping div                                                           |
-| backgroundColor            | string                  | #ecf0f1                 | false     | Background color of wrapping div                                                 |
-| selectedBackgroundColor    | string                  | #2ecc71                 | false     | Background of selected Option                                                    |
-| wrapperBorderRadius        | number                  | 20                      | false     | Border radius of wrapping div                                                    |
-| optionBorderRadius         | number                  | 18                      | false     | Border radius of Option component                                                |
-| fontSize                   | number                  | 14                      | false     | Font size of Option's label                                                      |
-| fontColor                  | string                  | #000                    | false     | Font color of Option's label                                                     |
-| selectedFontColor          | string                  | #fff                    | false     | Font color of selected Option's label                                            |
-| selectionIndicatorMargin   | number                  | 2                       | false     | Inner px margin of selected option indicator                                     |
-| disabled                   | boolean                 | false                   | false     | Disabling the toggle                                                             |
+| Prop name                  | Type                                     | Default                 | Required  | Note                                                                             |
+| -------------------------- |------------------------------------------|-------------------------| --------- | -------------------------------------------------------------------------------- |
+| options                    | Array of OptionType                      | []                      | true      | Options array to render. Each item has a label, value and optional styling props |
+| onChange                   | Function                                 | (v) => (console.log(v)) | true      | onChange callback that returns selected Option's value                           |
+| initialSelectedIndex       | number                                   | 0                       | false     | Initially selected index of options array                                        |
+| forcedSelectedIndex        | number                                   | undefined               | false     | Force selectedIndex with this prop (can be also used to resetting the toggle)    |
+| border                     | string/number                            | 0                       | false     | Border of wrapping div                                                           |
+| backgroundColor            | string                                   | #ecf0f1                 | false     | Background color of wrapping div                                                 |
+| selectedBackgroundColor    | string                                   | #2ecc71                 | false     | Background of selected Option                                                    |
+| wrapperBorderRadius        | number/CSS.Property.BorderRadius<string> | 20                      | false     | Border radius of wrapping div                                                    |
+| optionBorderRadius         | number/CSS.Property.BorderRadius<string> | 18                      | false     | Border radius of Option component                                                |
+| fontSize                   | number                                   | 14                      | false     | Font size of Option's label                                                      |
+| fontColor                  | string                                   | #000                    | false     | Font color of Option's label                                                     |
+| selectedFontColor          | string                                   | #fff                    | false     | Font color of selected Option's label                                            |
+| selectionIndicatorMargin   | number                                   | 2                       | false     | Inner px margin of selected option indicator                                     |
+| disabled                   | boolean                                  | false                   | false     | Disabling the toggle                                                             |
 
 #### OptionType
 
