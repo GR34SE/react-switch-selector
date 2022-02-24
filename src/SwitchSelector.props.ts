@@ -1,8 +1,8 @@
-import React from "react";
+import type {ReactElement} from "react";
 import {StylingPropsTypes} from "./SwitchSelector.styled";
 
 export type OptionType<T = unknown> = {
-    label: string | number | React.ReactElement | HTMLElement;
+    label: string | number | ReactElement | HTMLElement;
     value: T;
     selectedBackgroundColor?: string;
     fontColor?: string;

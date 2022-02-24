@@ -1,5 +1,4 @@
-import React from "react";
-import {useEffect} from "react";
+import React, {FC, useState, useEffect} from "react";
 import {
     SwitchSelectorWrapper,
     OptionItem,
@@ -11,10 +10,10 @@ import {defaultColors} from "./defaultColors";
 
 const CLASS_NAMES_PREFIX = "react-switch-selector";
 
-const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
+const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
     const {onChange = (): void => {}, options = [], initialSelectedIndex = 0} = props;
     const canApplyInitialSelectedIndex = !!options[initialSelectedIndex];
-    const [selectedIndex, setSelectedIndex] = React.useState(
+    const [selectedIndex, setSelectedIndex] = useState(
         canApplyInitialSelectedIndex ? initialSelectedIndex : 0
     );
 
