@@ -51,6 +51,7 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
 
     const renderOptions = (): React.ReactElement[] => {
         return options.map((option, index) => {
+            const isSelected = selectedIndex === index;
             const _optionId = `rss-option-${index}`;
             const isRawText = typeof option.label === "string";
 
@@ -64,12 +65,14 @@ const SwitchSelector: React.FC<SwitchSelectorProps> = (props) => {
                 <OptionItem
                     key={_optionId}
                     optionsAmount={options.length}
-                    className={`${CLASS_NAMES_PREFIX}-option`}
+                    className={`${CLASS_NAMES_PREFIX}-option ${CLASS_NAMES_PREFIX}-option-${
+                        isSelected ? "selected" : "unselected"
+                    }`}
                     optionBorderRadius={optionBorderRadius}
                 >
                     <OptionItemLabel
                         className={`${CLASS_NAMES_PREFIX}-option-label`}
-                        selected={selectedIndex === index}
+                        selected={isSelected}
                         isRawText={isRawText}
                         disabled={disabled}
                         aria-disabled={disabled}

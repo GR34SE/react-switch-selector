@@ -101,4 +101,6 @@ return (
 - react-switch-selector-wrapper - component root div
 - react-switch-selector-disabled - toggle in disabled state
 - react-switch-selector-option - each option
+- react-switch-selector-option-selected - option in "selected" state
+- react-switch-selector-option-unselected - each option in "unselected" state
 - react-switch-selector-option-label - each option item's label
