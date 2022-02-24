@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentStory, ComponentMeta, Story} from "@storybook/react";
 import SwitchSelector from "./SwitchSelector";
 import {switchSelectorMocks} from "./SwitchSelector.mocks";
 
@@ -38,7 +38,7 @@ Disabled.args = {
     disabled: true
 };
 
-export const OuterBorderRadius = () => (
+export const OuterBorderRadius: Story = () => (
     <div style={{width: 300, height: 30}}>
         <SwitchSelector
             wrapperBorderRadius={8}
