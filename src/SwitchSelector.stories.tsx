@@ -14,12 +14,6 @@ const Template: ComponentStory<typeof SwitchSelector> = (args) => (
     </div>
 );
 
-export const OneOption = Template.bind({});
-OneOption.args = {
-    ...switchSelectorMocks,
-    options: switchSelectorMocks.options.slice(0, 1)
-};
-
 export const TwoOptions = Template.bind({});
 TwoOptions.args = {
     ...switchSelectorMocks,
@@ -50,5 +44,15 @@ export const OuterBorderRadius: Story = () => (
                 {label: "Baz", value: "Baz"}
             ]}
         />
+    </div>
+);
+
+export const MultipleInstances: Story = () => (
+    <div style={{width: 300, height: 50}}>
+        <SwitchSelector {...switchSelectorMocks} name={"first"} />
+        <br />
+        <SwitchSelector {...switchSelectorMocks} name={"second"} />
+        <br />
+        <SwitchSelector {...switchSelectorMocks} name={"third"} />
     </div>
 );

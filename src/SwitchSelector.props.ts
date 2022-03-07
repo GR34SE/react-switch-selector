@@ -15,4 +15,5 @@ export interface SwitchSelectorProps extends Partial<StylingPropsTypes> {
     initialSelectedIndex?: number;
     forcedSelectedIndex?: number;
     disabled?: boolean;
+    name?: string;
 }

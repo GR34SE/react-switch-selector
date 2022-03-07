@@ -28,7 +28,8 @@ const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
         selectedFontColor = defaultColors.selectedFontColor,
         selectionIndicatorMargin = 2,
         forcedSelectedIndex,
-        disabled = false
+        disabled = false,
+        name
     } = props;
 
     useEffect(() => {
@@ -51,7 +52,7 @@ const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
     const renderOptions = (): React.ReactElement[] => {
         return options.map((option, index) => {
             const isSelected = selectedIndex === index;
-            const _optionId = `rss-option-${index}`;
+            const optionId = `${name ?? "rss"}-option-${index}`;
             const isRawText = typeof option.label === "string";
 
             const labelRawTextProps = {
@@ -62,7 +63,7 @@ const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
 
             return (
                 <OptionItem
-                    key={_optionId}
+                    key={optionId}
                     optionsAmount={options.length}
                     className={`${CLASS_NAMES_PREFIX}-option ${CLASS_NAMES_PREFIX}-option-${
                         isSelected ? "selected" : "unselected"
@@ -75,13 +76,17 @@ const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
                         isRawText={isRawText}
                         disabled={disabled}
                         aria-disabled={disabled}
+                        htmlFor={optionId}
                         {...(isRawText ? labelRawTextProps : {})}
                     >
                         <OptionInput
                             type="radio"
-                            id={_optionId}
+                            id={optionId}
+                            name={name}
                             onChange={(): void => handleOnClick(index)}
-                            checked={selectedIndex === index}
+                            checked={isSelected}
+                            aria-checked={isSelected}
+                            tabIndex={isSelected ? 0 : -1}
                         />
                         {option.label}
                     </OptionItemLabel>
@@ -107,6 +112,8 @@ const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
             optionBorderRadius={optionBorderRadius}
             selectionIndicatorMargin={selectionIndicatorMargin}
             disabled={disabled}
+            role={"radiogroup"}
+            aria-labelledby={name}
         >
             {renderOptions()}
         </SwitchSelectorWrapper>
