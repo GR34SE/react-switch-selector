@@ -79,8 +79,7 @@ export const SwitchSelectorWrapper = styled("div")<SwitchSelectorWrapperPropType
             typeof optionBorderRadius === "number"
                 ? `${optionBorderRadius}px`
                 : optionBorderRadius};
-        border: ${(props) => props.selectionIndicatorMargin}px solid
-            ${(props) => props.backgroundColor};
+        border: ${(props) => props.selectionIndicatorMargin}px ${"solid "}${(props) => props.backgroundColor};
         background: ${(props) => props.selectedBackgroundColor};
         transition:
             left 0.1s linear,
