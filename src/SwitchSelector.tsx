@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect} from "react";
+import React, {FC, useState, useEffect, useCallback, useMemo} from "react";
 import {
     SwitchSelectorWrapper,
     OptionItem,
@@ -42,14 +42,17 @@ const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
         }
     }, [forcedSelectedIndex, options, selectedIndex]);
 
-    const handleOnClick = (index: number): void => {
-        if (!disabled && index !== selectedIndex) {
-            setSelectedIndex(index);
-            onChange(options[index].value);
-        }
-    };
+    const handleOnClick = useCallback(
+        (index: number): void => {
+            if (!disabled && index !== selectedIndex) {
+                setSelectedIndex(index);
+                onChange(options[index].value);
+            }
+        },
+        [disabled, onChange, options, selectedIndex]
+    );
 
-    const renderOptions = (): React.ReactElement[] => {
+    const renderedOptions = useMemo(() => {
         return options.map((option, index) => {
             const isSelected = selectedIndex === index;
             const optionId = `${name ?? "rss"}-option-${index}`;
@@ -93,7 +96,17 @@ const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
                 </OptionItem>
             );
         });
-    };
+    }, [
+        disabled,
+        fontColor,
+        fontSize,
+        handleOnClick,
+        name,
+        optionBorderRadius,
+        options,
+        selectedFontColor,
+        selectedIndex
+    ]);
 
     if (!options.length) return null;
     return (
@@ -115,7 +128,7 @@ const SwitchSelector: FC<SwitchSelectorProps> = (props) => {
             role={"radiogroup"}
             aria-labelledby={name}
         >
-            {renderOptions()}
+            {renderedOptions}
         </SwitchSelectorWrapper>
     );
 };
