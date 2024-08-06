@@ -1,7 +1,7 @@
 {
   "name": "react-switch-selector",
   "description": "Tiny switch/toggle component for React️ ⚛",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "license": "MIT",
   "repository": "https://github.com/GR34SE/react-switch-selector.git",
   "author": "https://github.com/GR34SE",
