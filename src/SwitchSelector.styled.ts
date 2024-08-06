@@ -99,7 +99,7 @@ export const OptionItem = styled("div")<OptionItemPropsTypes>`
     display: flex;
     align-items: center;
     height: 100%;
-    width: ${(props) => (1 / props.optionsAmount) * 100}%;
+    width: ${(props: OptionItemPropsTypes) => (1 / props.optionsAmount) * 100}%;
     border-radius: ${({optionBorderRadius}) =>
         typeof optionBorderRadius === "number" ? `${optionBorderRadius}px` : optionBorderRadius};
 `;
