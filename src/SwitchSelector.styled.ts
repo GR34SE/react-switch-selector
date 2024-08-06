@@ -82,7 +82,9 @@ export const SwitchSelectorWrapper = styled("div")<SwitchSelectorWrapperPropType
         border: ${(props) => props.selectionIndicatorMargin}px solid
             ${(props) => props.backgroundColor};
         background: ${(props) => props.selectedBackgroundColor};
-        transition: left 0.1s linear, background 0.1s linear;
+        transition:
+            left 0.1s linear,
+            background 0.1s linear;
         transform: translateY(-50%);
         z-index: 1;
         box-sizing: content-box;
