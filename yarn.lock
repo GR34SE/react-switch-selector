@@ -2328,7 +2328,7 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/merge-streams/-/merge-streams-2.3.0.tgz#719df7fb41766bc143369eaa0dd56d8dc87c9958"
   integrity sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==
 
-"@storybook/addon-actions@8.2.7", "@storybook/addon-actions@^8.2.7":
+"@storybook/addon-actions@8.2.7":
   version "8.2.7"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-8.2.7.tgz#f2c6509bb1e18e99a34e7bb886292da9ab267bf2"
   integrity sha512-wDnMGGmaogAForkNncfCx8BEDiwxeK8zC0lj8HkRPUuH6vTr81U5RIb12Wa2TnnNKLKMFAtyPSnofHf3OAfzZQ==
@@ -2376,7 +2376,7 @@
     rehype-slug "^6.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-essentials@^8.2.7":
+"@storybook/addon-essentials@8.2.7":
   version "8.2.7"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-8.2.7.tgz#8a8f059fa9947376a561b81b86202a839f4146a2"
   integrity sha512-5qe7La9B2Z4Y9Fet3C35y8zOZwKgrqduNk8yAUmPRAOwopdo8SGKYpnFTnAtTfTCVk6Y+AZlRfQq0yLUk0Wl3g==
@@ -2399,7 +2399,7 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/addon-links@^8.2.7":
+"@storybook/addon-links@8.2.7":
   version "8.2.7"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-8.2.7.tgz#6c3714894c044bae826d16c128a5a6286af03e31"
   integrity sha512-BJdR+vdj7S6Rtx8XqBNQzLsRGH/FYHJ6B6BPWGp0awVx0jNWJnxepINQov8i+GAddUVQGCNG+r4LI3QSD3tNAA==
@@ -2436,7 +2436,7 @@
   dependencies:
     memoizerific "^1.11.3"
 
-"@storybook/addon-webpack5-compiler-swc@^1.0.5":
+"@storybook/addon-webpack5-compiler-swc@1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@storybook/addon-webpack5-compiler-swc/-/addon-webpack5-compiler-swc-1.0.5.tgz#675f8520c9df6d2a9873f5e23539538e43fe9b04"
   integrity sha512-1NlM3noit2vA22OyWb8Ma2lhcEKCS1Snv2kr+EkaVABUqNDfVc9AD/GgYQhF7F/2CoF5N2JU7uzXDzFHd5TzZg==
@@ -2617,7 +2617,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-8.2.7.tgz#59d341b11b8bf2cca1b35203656de90b34494b23"
   integrity sha512-9VI+NrC09DAr0QQZsFmU5Fd9eqdJp/1AHK+sm9BOZretGGGJwn22xS7UXhHIiFpfXJQnr3TNcYWRzXFyuaE/Sw==
 
-"@storybook/react-webpack5@^8.2.7":
+"@storybook/react-webpack5@8.2.7":
   version "8.2.7"
   resolved "https://registry.yarnpkg.com/@storybook/react-webpack5/-/react-webpack5-8.2.7.tgz#48eef5b991752cef8c2dc0628caab88397e9264d"
   integrity sha512-BbwYkULRwp+rfVxH8MhaCQydlgd1eJdzdDhhIzViv3gKVVt7Kg5hUDgxQc2yRwWbUcuN/f5G3sx/CVGoavp3Ow==
@@ -2627,7 +2627,7 @@
     "@storybook/react" "8.2.7"
     "@types/node" "^18.0.0"
 
-"@storybook/react@8.2.7", "@storybook/react@^8.2.7":
+"@storybook/react@8.2.7":
   version "8.2.7"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-8.2.7.tgz#d1fa051a97b539f903318d9e01c233c50efd31d0"
   integrity sha512-Qkw1K1iBDk+E9dlHrEWOOkn0trUU6wSt4mvzyOekiApM290esnPtw6GYXvxfBgFwNXfXbaGG3QNYGAFevf7qHw==
@@ -3963,12 +3963,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001243:
-  version "1.0.30001243"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001243.tgz#d9250155c91e872186671c523f3ae50cfc94a3aa"
-  integrity sha512-vNxw9mkTBtkmLFnJRv/2rhs1yufpDfCkBZexG3Y0xdOH2Z/eE/85E4Dl5j1YUN34nZVsSp6vVRFQRrez9wJMRA==
-
-caniuse-lite@^1.0.30001646:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001243, caniuse-lite@^1.0.30001646:
   version "1.0.30001649"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001649.tgz#3ec700309ca0da2b0d3d5fb03c411b191761c992"
   integrity sha512-fJegqZZ0ZX8HOWr6rcafGr72+xcgJKI9oWfDW5DrD7ExUtgZC7a7R7ZYmZqplh7XDocFdGeIFn7roAxhOeYrPQ==
