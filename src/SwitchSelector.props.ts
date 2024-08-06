@@ -2,7 +2,7 @@ import type {ReactNode} from "react";
 import type {StylingPropsTypes} from "./SwitchSelector.styled";
 
 export type OptionType<T = unknown> = {
-    label: string | number | ReactElement | HTMLElement;
+    label: ReactNode;
     value: T;
     selectedBackgroundColor?: string;
     fontColor?: string;
