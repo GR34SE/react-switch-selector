@@ -21,7 +21,8 @@
     "release": "yarn lint && yarn build && release-it",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
-    "storybook": "storybook dev"
+    "storybook:dev": "storybook dev",
+    "storybook:build": "storybook build"
   },
   "peerDependencies": {
     "goober": "^2.1.14",

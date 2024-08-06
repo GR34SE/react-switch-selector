@@ -16,7 +16,7 @@ jobs:
       - name: Install and Build 🔧
         run: |
           yarn
-          yarn build-storybook
+          yarn run storybook:build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
