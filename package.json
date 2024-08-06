@@ -21,7 +21,7 @@
     "release": "yarn lint && yarn build && release-it",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
-    "storybook": "start-storybook"
+    "storybook": "storybook dev"
   },
   "peerDependencies": {
     "goober": "^2.1.14",
@@ -35,10 +35,12 @@
   },
   "devDependencies": {
     "@babel/core": "7.25.2",
-    "@storybook/addon-actions": "6.5.16",
-    "@storybook/addon-essentials": "6.5.16",
-    "@storybook/addon-links": "6.5.16",
-    "@storybook/react": "6.5.16",
+    "@storybook/addon-actions": "8.2.7",
+    "@storybook/addon-essentials": "8.2.7",
+    "@storybook/addon-links": "8.2.7",
+    "@storybook/addon-webpack5-compiler-swc": "1.0.5",
+    "@storybook/react": "8.2.7",
+    "@storybook/react-webpack5": "8.2.7",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "8.0.1",
@@ -55,6 +57,7 @@
     "prettier": "3.3.3",
     "release-it": "17.6.0",
     "rimraf": "6.0.1",
+    "storybook": "^8.2.7",
     "typescript": "5.5.4"
   },
   "keywords": [

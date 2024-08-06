@@ -4,7 +4,7 @@ import SwitchSelector from "./SwitchSelector";
 import {switchSelectorMocks} from "./SwitchSelector.mocks";
 
 export default {
-    title: SwitchSelector.name,
+    title: "SwitchSelector",
     component: SwitchSelector
 } as ComponentMeta<typeof SwitchSelector>;
 
