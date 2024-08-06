@@ -1,7 +1,7 @@
 import {createElement} from "react";
 import {setup, styled} from "goober";
 import {shouldForwardProp} from "goober/should-forward-prop";
-import CSS from "csstype";
+import type CSS from "csstype";
 
 const propToOmitInDom = [
     "fontSize",

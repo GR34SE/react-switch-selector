@@ -1,5 +1,5 @@
-import type {ReactElement} from "react";
-import {StylingPropsTypes} from "./SwitchSelector.styled";
+import type {ReactNode} from "react";
+import type {StylingPropsTypes} from "./SwitchSelector.styled";
 
 export type OptionType<T = unknown> = {
     label: string | number | ReactElement | HTMLElement;
