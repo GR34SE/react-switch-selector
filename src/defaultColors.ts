@@ -3,4 +3,4 @@ export const defaultColors = {
     selectedBackgroundColor: "#2ecc71",
     fontColor: "#000",
     selectedFontColor: "#fff"
-};
+} as const;
