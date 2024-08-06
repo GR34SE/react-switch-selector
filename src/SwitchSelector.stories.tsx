@@ -1,38 +1,47 @@
 import React from "react";
-import {ComponentStory, ComponentMeta, Story} from "@storybook/react";
+import {StoryFn, Meta} from "@storybook/react";
 import SwitchSelector from "./SwitchSelector";
 import {switchSelectorMocks} from "./SwitchSelector.mocks";
 
 export default {
     title: "SwitchSelector",
     component: SwitchSelector
-} as ComponentMeta<typeof SwitchSelector>;
+} as Meta<typeof SwitchSelector>;
 
-const Template: ComponentStory<typeof SwitchSelector> = (args) => (
+const Template: StoryFn<typeof SwitchSelector> = (args) => (
     <div style={{width: 300, height: 30}}>
         <SwitchSelector {...args} />
     </div>
 );
 
-export const TwoOptions = Template.bind({});
-TwoOptions.args = {
-    ...switchSelectorMocks,
-    options: switchSelectorMocks.options.slice(0, 2)
+export const TwoOptions = {
+    render: Template,
+
+    args: {
+        ...switchSelectorMocks,
+        options: switchSelectorMocks.options.slice(0, 2)
+    }
 };
 
-export const ThreeOptions = Template.bind({});
-ThreeOptions.args = {
-    ...switchSelectorMocks,
-    initialSelectedIndex: Math.floor(switchSelectorMocks.options.length / 2)
+export const ThreeOptions = {
+    render: Template,
+
+    args: {
+        ...switchSelectorMocks,
+        initialSelectedIndex: Math.floor(switchSelectorMocks.options.length / 2)
+    }
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-    ...switchSelectorMocks,
-    disabled: true
+export const Disabled = {
+    render: Template,
+
+    args: {
+        ...switchSelectorMocks,
+        disabled: true
+    }
 };
 
-export const OuterBorderRadius: Story = () => (
+export const OuterBorderRadius: StoryFn = () => (
     <div style={{width: 300, height: 30}}>
         <SwitchSelector
             wrapperBorderRadius={8}
@@ -47,7 +56,7 @@ export const OuterBorderRadius: Story = () => (
     </div>
 );
 
-export const MultipleInstances: Story = () => (
+export const MultipleInstances: StoryFn = () => (
     <div style={{width: 300, height: 50}}>
         <SwitchSelector {...switchSelectorMocks} name={"first"} />
         <br />
