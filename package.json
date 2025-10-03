@@ -30,7 +30,7 @@
     "react-dom": "^16 || ^17 || ^18"
   },
   "dependencies": {
-    "goober": "2.1.14"
+    "goober": "2.1.18"
   },
   "devDependencies": {
     "@babel/core": "7.25.2",
