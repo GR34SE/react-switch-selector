@@ -33,7 +33,7 @@
     "goober": "2.1.14"
   },
   "devDependencies": {
-    "@babel/core": "7.25.2",
+    "@babel/core": "7.28.5",
     "@storybook/addon-actions": "8.2.7",
     "@storybook/addon-essentials": "8.2.7",
     "@storybook/addon-links": "8.2.7",
