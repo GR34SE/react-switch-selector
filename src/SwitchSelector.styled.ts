@@ -38,16 +38,15 @@ export type StylingPropsTypes = {
     selectionIndicatorMargin: number;
 };
 
-interface SwitchSelectorWrapperPropTypes
-    extends Pick<
-        StylingPropsTypes,
-        | "border"
-        | "backgroundColor"
-        | "selectedBackgroundColor"
-        | "wrapperBorderRadius"
-        | "optionBorderRadius"
-        | "selectionIndicatorMargin"
-    > {
+interface SwitchSelectorWrapperPropTypes extends Pick<
+    StylingPropsTypes,
+    | "border"
+    | "backgroundColor"
+    | "selectedBackgroundColor"
+    | "wrapperBorderRadius"
+    | "optionBorderRadius"
+    | "selectionIndicatorMargin"
+> {
     selectedIndex: number;
     optionsAmount: number;
     disabled: boolean;
@@ -79,7 +78,8 @@ export const SwitchSelectorWrapper = styled("div")<SwitchSelectorWrapperPropType
             typeof optionBorderRadius === "number"
                 ? `${optionBorderRadius}px`
                 : optionBorderRadius};
-        border: ${(props) => props.selectionIndicatorMargin}px ${"solid "}${(props) => props.backgroundColor};
+        border: ${(props) => props.selectionIndicatorMargin}px
+            ${"solid "}${(props) => props.backgroundColor};
         background: ${(props) => props.selectedBackgroundColor};
         transition:
             left 0.1s linear,
@@ -103,8 +103,9 @@ export const OptionItem = styled("div")<OptionItemPropsTypes>`
         typeof optionBorderRadius === "number" ? `${optionBorderRadius}px` : optionBorderRadius};
 `;
 
-interface OptionItemLabelPropsTypes
-    extends Partial<Pick<StylingPropsTypes, "fontSize" | "fontColor" | "selectedFontColor">> {
+interface OptionItemLabelPropsTypes extends Partial<
+    Pick<StylingPropsTypes, "fontSize" | "fontColor" | "selectedFontColor">
+> {
     isRawText: boolean;
     selected: boolean;
     disabled: boolean;
