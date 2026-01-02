@@ -13,7 +13,8 @@
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
   ],
   "parserOptions": {
     "project": [
@@ -45,9 +46,13 @@
   },
   "overrides": [
     {
-      "files": ["*.styled.ts"],
+      "files": [
+        "*.styled.ts"
+      ],
       "rules": {
-        "@typescript-eslint/explicit-function-return-type": ["off"]
+        "@typescript-eslint/explicit-function-return-type": [
+          "off"
+        ]
       }
     }
   ],
