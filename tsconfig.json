@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "jsx": "react",
     "declaration": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
