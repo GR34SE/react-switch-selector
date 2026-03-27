@@ -1493,10 +1493,10 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/addon-webpack5-compiler-swc@4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-webpack5-compiler-swc/-/addon-webpack5-compiler-swc-4.0.2.tgz#91f10a02cf9a917fd1ced5f3c836bf049d94b416"
-  integrity sha512-I/B4zXnpk+wLs2YA/VcCzUjF/TtB26X4zIoXw3xaPPUvk5aPc76/dhmZHLMXkICQEur5FkFQv0YGHNxWHbhnfw==
+"@storybook/addon-webpack5-compiler-swc@4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-webpack5-compiler-swc/-/addon-webpack5-compiler-swc-4.0.3.tgz#b55791152b0d9aa61c664d24e250f391c36680ed"
+  integrity sha512-REJZBArIBcqzxmhQY9R1br9hjfcFYdl4FeWD/okx1eRwPZkl49aUhTYqZPrA+MWXfKJkuuNQ5vnfSoR0c9HyvA==
   dependencies:
     "@swc/core" "^1.13.5"
     swc-loader "^0.2.6"
