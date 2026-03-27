@@ -36,7 +36,7 @@
         "@babel/core": "7.28.5",
         "@storybook/addon-docs": "^10.1.11",
         "@storybook/addon-links": "10.1.11",
-        "@storybook/addon-webpack5-compiler-swc": "4.0.2",
+        "@storybook/addon-webpack5-compiler-swc": "4.0.3",
         "@storybook/react": "10.1.11",
         "@storybook/react-webpack5": "10.1.11",
         "@types/react": "19.2.7",
