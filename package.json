@@ -33,7 +33,7 @@
         "goober": "2.1.18"
     },
     "devDependencies": {
-        "@babel/core": "7.28.5",
+        "@babel/core": "7.29.7",
         "@storybook/addon-docs": "^10.1.11",
         "@storybook/addon-links": "10.1.11",
         "@storybook/addon-webpack5-compiler-swc": "4.0.2",
